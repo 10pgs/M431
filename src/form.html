@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Store – Inscription</title>
+    <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+    <main>
+        <div class="form-container">
+            <h2>Créer un compte</h2>
+            <form action="register.php" method="POST" autocomplete="off">
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="creditcard">Carte bancaire</label>
+                <input type="text" id="creditcard" name="creditcard" pattern="[0-9]{16}" maxlength="16" placeholder="1234 5678 9012 3456" required>
+
+                <button type="submit">Créer un compte</button>
+            </form>
+            <div class="or">ou</div>
+            <a class="google-btn" href="google-login.php">
+                <img src="img/google-logo.png" alt="Google" />
+                Se connecter avec Google
+            </a>
+        </div>
+    </main>
+</body>
+</html>
