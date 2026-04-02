@@ -1,6 +1,7 @@
 -- Schema MySQL 8.0 - GameStore
 -- Cree a partir du MLD dans database/modele-donnees.md
 
+DROP DATABASE IF EXISTS gamestore;
 CREATE DATABASE IF NOT EXISTS gamestore
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;

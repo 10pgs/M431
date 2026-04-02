@@ -11,12 +11,23 @@ services:
     depends_on:
       - db
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: GamestoreFunctional
+    depends_on:
+      - db
+
   db:
     image: mysql:8.0
     container_name: mysql-db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_ROOT_PASSWORD: GamestoreFunctional
       MYSQL_DATABASE: gamestore
       MYSQL_USER: user
       MYSQL_PASSWORD: userpassword

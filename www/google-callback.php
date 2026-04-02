@@ -42,6 +42,24 @@ if (empty($userInfo['sub'])) {
     exit('Impossible de récupérer les informations du compte Google.');
 }
 
+// ── 4.5. Insert or update user in database ───────────────────────────────
+try {
+    $pdo = new PDO('mysql:host=db;dbname=gamestore;charset=utf8mb4', 'user', 'userpassword');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Try to insert, or update if exists
+    $stmt = $pdo->prepare("INSERT INTO utilisateur (username, email, auth_provider, google_sub) VALUES (?, ?, 'google', ?)
+        ON DUPLICATE KEY UPDATE username=VALUES(username), email=VALUES(email), google_sub=VALUES(google_sub)");
+    $stmt->execute([
+        $userInfo['name'] ?? 'Utilisateur',
+        $userInfo['email'] ?? null,
+        $userInfo['sub']
+    ]);
+} catch (PDOException $e) {
+    // Optionally log error
+    // error_log($e->getMessage());
+}
+
 // ── 5. Store user in session and redirect ───────────────────────────────────
 $_SESSION['user'] = [
     'id'      => $userInfo['sub'],
