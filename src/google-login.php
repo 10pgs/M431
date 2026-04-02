@@ -1,5 +1,21 @@
 <?php
-// Placeholder for Google login integration
-// In production, use Google OAuth (see https://developers.google.com/identity)
-echo '<h2>Connexion Google non implémentée (démo)</h2>';
-echo '<a href="form.html">Retour</a>';
+session_start();
+require_once 'config.php';
+
+// Generate a random CSRF state token and store it in session
+$state = bin2hex(random_bytes(16));
+$_SESSION['oauth_state'] = $state;
+
+$params = http_build_query([
+    'client_id'     => GOOGLE_CLIENT_ID,
+    'redirect_uri'  => GOOGLE_REDIRECT_URI,
+    'response_type' => 'code',
+    'scope'         => 'openid email profile',
+    'state'         => $state,
+    'access_type'   => 'online',
+    'prompt'        => 'select_account',
+]);
+
+header('Location: https://accounts.google.com/o/oauth2/v2/auth?' . $params);
+exit();
+
