@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/jeu-detail.css">
+    <title>Game Store - Detail du jeu</title>
+</head>
+
+<body>
+    <header>
+        <a class="brand-mark" href="index.html">Game Store</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">A propos</a></li>
+                <li><a href="avis.html">Avis</a></li>
+                <li><a href="jeu.html">Les jeux</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <a class="back-link" href="jeu.html">← Retour a la liste des jeux</a>
+
+        <section class="detail-card" id="detail-card" aria-live="polite">
+            <div class="media-wrap">
+                <img id="game-image" src="" alt="" />
+            </div>
+
+            <div class="content-wrap">
+                <p class="meta" id="game-meta"></p>
+                <h1 id="game-title"></h1>
+                <p class="long-desc" id="game-desc"></p>
+
+                <div class="actions">
+                    <a id="download-link" class="btn-download" href="#" target="_blank" rel="noopener noreferrer">Telecharger</a>
+                    <a class="btn-secondary" href="login.html">Acheter</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const GAME_DETAILS = {
+            'counter-strike-2': {
+                name: 'Counter-Strike 2',
+                price: 'Free',
+                date: '2023-09-27',
+                image: './img/jeux/CS2.png',
+                downloadUrl: 'https://store.steampowered.com/app/730/CounterStrike_2/',
+                longDesc: "Counter-Strike 2 modernise la formule competitive culte de Valve avec une architecture graphique plus recente, un gameplay ultra precis et une scene e-sport toujours active. C'est un excellent choix pour les joueurs qui aiment progresser sur la strategie d'equipe, la communication et la maitrise mecanique."
+            },
+            'red-dead-redemption-2': {
+                name: 'Red Dead Redemption 2',
+                price: '59EUR',
+                date: '2018-10-26',
+                image: './img/jeux/rdr2.jpg',
+                downloadUrl: 'https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/',
+                longDesc: "Red Dead Redemption 2 propose un immense monde ouvert riche en details, des personnages marquants et une narration cinematographique. Entre missions, exploration libre, chasse, quetes secondaires et decouverte de l'Ouest americain, le jeu offre une aventure longue et immersive."
+            },
+            'silent-hill-2-remake': {
+                name: 'Silent Hill 2 Remake',
+                price: '79EUR',
+                date: '2024',
+                image: './img/jeux/SH2R.jpg',
+                downloadUrl: 'https://store.steampowered.com/app/2124490/SILENT_HILL_2/',
+                longDesc: "Silent Hill 2 Remake reinterprete un classique du survival horror avec une mise en scene plus moderne et une ambiance psychologique oppressante. Le jeu met l'accent sur l'atmosphere, l'exploration et les combats tendus, avec une narration centree sur la culpabilite et le traumatisme."
+            },
+            'resident-evil-requiem': {
+                name: 'Resident Evil Requiem',
+                price: '79EUR',
+                date: '2026',
+                image: './img/jeux/RE9.jpg',
+                downloadUrl: 'https://www.residentevil.com/',
+                longDesc: "Resident Evil Requiem poursuit la tradition de la serie avec de nouvelles zones dangereuses, des ressources limitees et des affrontements intenses. Ce type d'opus melange en general action et horreur de survie avec une progression tendue et de nombreux moments memorables."
+            },
+            'cyberpunk-2077': {
+                name: 'Cyberpunk 2077',
+                price: '39EUR',
+                date: '2020-12-10',
+                image: './img/jeux/cyberpunk2077.jpg',
+                downloadUrl: 'https://store.steampowered.com/app/1091500/Cyberpunk_2077/',
+                longDesc: "Cyberpunk 2077 plonge le joueur dans Night City, une megapole futuriste ou l'ambition, la technologie et la violence cohabitent. Avec ses quetes narratives, ses choix de dialogue et sa progression RPG, le jeu offre plusieurs facons de jouer selon le style que tu preferes."
+            },
+            'metal-gear-solid-3': {
+                name: 'Metal Gear Solid 3',
+                price: '59EUR',
+                date: '2025',
+                image: './img/jeux/mgs3.jpg',
+                downloadUrl: 'https://store.steampowered.com/app/2417610/METAL_GEAR_SOLID_Delta_SNAKE_EATER/',
+                longDesc: "Metal Gear Solid 3 est une reference du jeu d'infiltration, connue pour son ambiance espionnage et sa mise en scene forte. Dans cette version moderne, on retrouve une aventure tactique basee sur la discretion, l'observation et l'adaptation a l'environnement."
+            },
+            'the-legend-of-zelda-breath-of-the-wild': {
+                name: 'The Legend of Zelda: Breath of the Wild',
+                price: '59EUR',
+                date: '2017-03-03',
+                image: './img/jeux/TLOZBOTW.jpg',
+                downloadUrl: 'https://www.nintendo.com/store/products/the-legend-of-zelda-breath-of-the-wild-switch/',
+                longDesc: "Breath of the Wild reinvente l'exploration en monde ouvert avec une grande liberte d'approche. Chaque montagne, sanctuaire ou village invite a la curiosite, et les systemes physiques du jeu permettent des solutions creatives en combat comme en exploration."
+            },
+            'god-of-war-ragnarok': {
+                name: 'God of War Ragnarok',
+                price: '59EUR',
+                date: '2022-11-09',
+                image: './img/jeux/GOWR.jpg',
+                downloadUrl: 'https://www.playstation.com/games/god-of-war-ragnarok/',
+                longDesc: "God of War Ragnarok poursuit l'histoire de Kratos et Atreus dans une aventure epique inspiree de la mythologie nordique. Le jeu combine combats nerveux, mise en scene spectaculaire et narration emotionnelle avec des environnements tres soignes."
+            },
+            'clair-obscur-expedition-33': {
+                name: 'Clair Obscur: Expedition 33',
+                price: '79EUR',
+                date: '2025',
+                image: './img/jeux/expedition33.jpg',
+                downloadUrl: 'https://store.steampowered.com/app/1903340/Clair_Obscur_Expedition_33/',
+                longDesc: "Clair Obscur: Expedition 33 mise sur une direction artistique marquee et un univers original. Le jeu propose un RPG narratif ou les combats, la construction de groupe et l'ambiance visuelle contribuent a une experience plus dramatique et immersive."
+            },
+            'the-last-of-us-part-ii': {
+                name: 'The Last of Us Part II',
+                price: '49EUR',
+                date: '2020-06-19',
+                image: './img/jeux/tlou2.jpg',
+                downloadUrl: 'https://www.playstation.com/games/the-last-of-us-part-ii-remastered/',
+                longDesc: "The Last of Us Part II est une aventure narrative intense axee sur la survie, les consequences morales et des personnages complexes. Le gameplay alterne infiltration, affrontements brutaux et exploration, avec une mise en scene tres cinematographique."
+            },
+            'fallout-new-vegas': {
+                name: 'Fallout: New Vegas',
+                price: '19EUR',
+                date: '2010-10-22',
+                image: './img/jeux/FNV.jpg',
+                downloadUrl: 'https://store.steampowered.com/app/22380/Fallout_New_Vegas/',
+                longDesc: "Fallout: New Vegas est un RPG culte qui valorise les choix du joueur et leurs consequences. Entre factions rivales, quetes alternatives et dialogues tres riches, il reste une reference pour les amateurs de roleplay et d'univers post-apocalyptique."
+            },
+            'the-witcher-3-wild-hunt': {
+                name: 'The Witcher 3: Wild Hunt',
+                price: '39EUR',
+                date: '2015-05-19',
+                image: './img/jeux/TW3.jpg',
+                downloadUrl: 'https://store.steampowered.com/app/292030/The_Witcher_3_Wild_Hunt/',
+                longDesc: "The Witcher 3 combine quetes memorables, combats dynamiques et exploration d'un vaste monde medieval-fantastique. Le jeu se distingue surtout par la qualite de ses histoires secondaires et la profondeur de son univers."
+            },
+            'grand-theft-auto-v': {
+                name: 'Grand Theft Auto V',
+                price: '29EUR',
+                date: '2013-09-17',
+                image: './img/jeux/gta5.jpg',
+                downloadUrl: 'https://store.steampowered.com/app/271590/Grand_Theft_Auto_V/',
+                longDesc: "GTA V propose une campagne solo ambitieuse, un monde ouvert vivant et un mode en ligne extremement populaire. Entre missions, conduite, activites annexes et contenu communautaire, c'est un jeu tres complet qui se renouvelle facilement."
+            },
+            'battlefield-6': {
+                name: 'Battlefield 6',
+                price: '59EUR',
+                date: '2025-10-15',
+                image: './img/jeux/Battlefield6.png',
+                downloadUrl: 'https://www.ea.com/games/battlefield',
+                longDesc: "Battlefield mise historiquement sur de grandes batailles multijoueur avec vehicules, destruction et jeu en escouade. Cet opus est pense pour les joueurs qui aiment les affrontements a grande echelle et la cooperation tactique."
+            },
+            'forza-horizon-5': {
+                name: 'Forza Horizon 5',
+                price: '49EUR',
+                date: '2021-11-09',
+                image: './img/jeux/FH5.jpg',
+                downloadUrl: 'https://store.steampowered.com/app/1551360/Forza_Horizon_5/',
+                longDesc: "Forza Horizon 5 offre un monde ouvert vaste et coloré inspire du Mexique, avec une conduite accessible mais exigeante a haut niveau. Les courses, defis, evenements saisonniers et options de personnalisation en font une reference arcade-simulation."
+            },
+            'hearts-of-iron-iv': {
+                name: 'Hearts of Iron IV',
+                price: '39EUR',
+                date: '2016-06-06',
+                image: './img/jeux/HOI4.jpg',
+                downloadUrl: 'https://store.steampowered.com/app/394360/Hearts_of_Iron_IV/',
+                longDesc: "Hearts of Iron IV est un jeu de grande strategie focalise sur la Seconde Guerre mondiale. Gestion economique, diplomatie, doctrine militaire et production sont au coeur de l'experience pour les joueurs qui aiment la profondeur strategique."
+            },
+            'bodycam': {
+                name: 'Bodycam',
+                price: '29EUR',
+                date: '2024-05-01',
+                image: './img/jeux/BODYCAM.jpg',
+                downloadUrl: 'https://store.steampowered.com/app/2406770/Bodycam/',
+                longDesc: "Bodycam se distingue par son rendu tres realiste et sa perspective immersive. Le gameplay met l'accent sur la tension, les duels rapides et la precision, ce qui en fait un titre ideal pour les amateurs de shooters tactiques intenses."
+            },
+            'ghost-of-tsushima': {
+                name: 'Ghost of Tsushima',
+                price: '59EUR',
+                date: '2024-05-16',
+                image: './img/jeux/GOT.jpg',
+                downloadUrl: 'https://store.steampowered.com/app/2215430/Ghost_of_Tsushima_DIRECTORS_CUT/',
+                longDesc: "Ghost of Tsushima combine exploration poetique, combats au sabre tres lisibles et narration inspiree du cinema japonais. Son monde ouvert et son ambiance sonore soignee en font une experience contemplative autant qu'action."
+            },
+            'euro-truck-simulator-2': {
+                name: 'Euro Truck Simulator 2',
+                price: '19EUR',
+                date: '2012-10-19',
+                image: './img/jeux/ETS2.jpg',
+                downloadUrl: 'https://store.steampowered.com/app/227300/Euro_Truck_Simulator_2/',
+                longDesc: "Euro Truck Simulator 2 propose une simulation relaxante et detaillee de transport routier en Europe. Entre gestion de flotte, optimisation de trajets et conduite longue distance, le jeu offre un rythme calme mais tres addictif."
+            },
+            'helldivers-2': {
+                name: 'Helldivers 2',
+                price: '39EUR',
+                date: '2024-02-08',
+                image: './img/jeux/Helldivers.jpg',
+                downloadUrl: 'https://store.steampowered.com/app/553850/HELLDIVERS_2/',
+                longDesc: "Helldivers 2 est un shooter cooperatif nerveux ou la coordination d'equipe fait toute la difference. Les missions dynamiques, l'humour militaire satirique et les outils strategiques creent des parties chaotiques et memorables."
+            },
+            'dead-space-remake': {
+                name: 'Dead Space Remake',
+                price: '59EUR',
+                date: '2023-01-27',
+                image: './img/jeux/DeadSpace.jpg',
+                downloadUrl: 'https://store.steampowered.com/app/1693980/Dead_Space/',
+                longDesc: "Dead Space Remake remet au gout du jour un classique du survival horror spatial avec une ambiance sonore glaçante et des affrontements oppressants. La progression dans l'USG Ishimura reste une reference en matiere de tension et d'immersion."
+            }
+        };
+
+        const defaultGame = {
+            name: 'Jeu introuvable',
+            price: '-',
+            date: '-',
+            image: './img/jeux/CS2.png',
+            downloadUrl: 'jeu.html',
+            longDesc: "Le jeu demande n'a pas ete trouve. Retourne a la liste pour en selectionner un autre."
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const gameId = params.get('id') || '';
+        const game = GAME_DETAILS[gameId] || defaultGame;
+
+        document.getElementById('game-title').textContent = game.name;
+        document.getElementById('game-meta').textContent = `${game.price} - Sortie: ${game.date}`;
+        document.getElementById('game-desc').textContent = game.longDesc;
+
+        const image = document.getElementById('game-image');
+        image.src = game.image;
+        image.alt = game.name;
+
+        const downloadLink = document.getElementById('download-link');
+        downloadLink.href = game.downloadUrl;
+    </script>
+</body>
+
+</html>
