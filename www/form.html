@@ -4,9 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Store – Inscription</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/form.css">
 </head>
 <body>
+    <header>
+        <a class="brand-mark" href="index.html">Game Store</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">A propos</a></li>
+                <li><a href="avis.html">Avis</a></li>
+                <li><a href="jeu.html">Les jeux</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+        <form id="search-form" style="margin-left: 32px;">
+            <input type="text" id="search-bar" placeholder="Rechercher un jeu..." style="padding: 8px 16px; border-radius: 8px; border: 1.5px solid #d1d5db; font-size: 1rem;">
+        </form>
+    </header>
     <main>
         <div class="form-container">
             <h2>Créer un compte</h2>
@@ -35,4 +53,21 @@
         </div>
     </main>
 </body>
+<script>
+// --- Search Bar Functionality (shared) ---
+const GAME_DETAILS = window.GAME_DETAILS || {};
+const searchBar = document.getElementById('search-bar');
+if (searchBar) {
+    searchBar.addEventListener('input', function() {
+        const query = this.value.toLowerCase();
+        const results = Object.entries(GAME_DETAILS).filter(([slug, game]) =>
+            game.name.toLowerCase().includes(query)
+        );
+        if (results.length > 0) {
+            const [slug] = results[0];
+            window.location.href = 'jeu-detail.html?id=' + slug;
+        }
+    });
+}
+</script>
 </html>

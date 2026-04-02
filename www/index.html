@@ -137,6 +137,28 @@
                 </div>
             </section>
         </div>
+    </footer>
+
+    <!-- Add this to the header of each main HTML page (index.html, about.html, avis.html, jeu.html, profile.html, etc.) -->
+    <form id="search-form" style="margin-left: 32px;">
+        <input type="text" id="search-bar" placeholder="Rechercher un jeu..." style="padding: 8px 16px; border-radius: 8px; border: 1.5px solid #d1d5db; font-size: 1rem;">
+    </form>
+    <script>
+        const GAME_DETAILS = window.GAME_DETAILS || {};
+        const searchBar = document.getElementById('search-bar');
+        if (searchBar) {
+            searchBar.addEventListener('input', function () {
+                const query = this.value.toLowerCase();
+                const results = Object.entries(GAME_DETAILS).filter(([slug, game]) =>
+                    game.name.toLowerCase().includes(query)
+                );
+                if (results.length > 0) {
+                    const [slug] = results[0];
+                    window.location.href = 'jeu-detail.html?id=' + slug;
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
