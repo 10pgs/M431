@@ -94,4 +94,82 @@ button[type="submit"]:hover {
 .google-btn:hover {
     border: 1.5px solid #0078d7;
     box-shadow: 0 4px 16px rgba(0,120,215,0.08);
+    }
+
+    /* Responsive Design: Media Queries */
+    /* Phones (max-width: 600px) */
+    @media (max-width: 600px) {
+        body, .form-container {
+            padding: 8px !important;
+            margin: 0 !important;
+            font-size: 0.95rem !important;
+        }
+        .form-container {
+            max-width: 98vw !important;
+            padding: 10px 4px !important;
+        }
+        h2 {
+            font-size: 1.2rem !important;
+        }
+    }
+
+    /* Tablets (601px - 900px) */
+    @media (min-width: 601px) and (max-width: 900px) {
+        body, .form-container {
+            padding: 16px !important;
+            font-size: 1.05rem !important;
+        }
+        .form-container {
+            max-width: 90vw !important;
+            padding: 20px 10px !important;
+        }
+        h2 {
+            font-size: 1.4rem !important;
+        }
+    }
+
+    /* Laptops (901px - 1200px) */
+    @media (min-width: 901px) and (max-width: 1200px) {
+        body, .form-container {
+            padding: 20px !important;
+            font-size: 1.1rem !important;
+        }
+        .form-container {
+            max-width: 70vw !important;
+            padding: 30px 18px !important;
+        }
+        h2 {
+            font-size: 1.6rem !important;
+        }
+    }
+
+    /* Desktops (1201px - 1800px) */
+    @media (min-width: 1201px) and (max-width: 1800px) {
+        body, .form-container {
+            padding: 28px !important;
+            font-size: 1.15rem !important;
+        }
+        .form-container {
+            max-width: 400px !important;
+            padding: 40px 30px !important;
+        }
+        h2 {
+            font-size: 2rem !important;
+        }
+    }
+
+    /* Large Desktops & Above (1801px+) */
+    @media (min-width: 1801px) {
+        body, .form-container {
+            padding: 40px !important;
+            font-size: 1.2rem !important;
+        }
+        .form-container {
+            max-width: 400px !important;
+            padding: 60px 40px !important;
+        }
+        h2 {
+            font-size: 2.3rem !important;
+        }
+    }
 }
