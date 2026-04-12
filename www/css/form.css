@@ -253,7 +253,7 @@ header nav ul li a {
     font-size: 0.95rem;
 }
 
-/* Responsive adjustments */
+/* Ajustements responsives */
 @media (max-width: 600px) {
     body {
         padding: 16px;

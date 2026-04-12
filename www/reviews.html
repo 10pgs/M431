@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -7,20 +7,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/jeu-detail.css">
-    <title>Game Store - Detail du jeu</title>
+    <link rel="stylesheet" href="css/reviews.css">
+    <title>Game Store – Avis</title>
 </head>
 
 <body>
     <header>
-        <a class="brand-mark" href="index.html">Game Store</a>
+        <a href="index.html" class="brand-mark">Game Store</a>
         <div class="header-actions">
             <nav>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
-                    <li><a href="about.html">A propos</a></li>
-                    <li><a href="avis.html">Avis</a></li>
-                    <li><a href="jeu.html" class="active">Jeux</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="reviews.html" class="active">Avis</a></li>
+                    <li><a href="games.html">Jeux</a></li>
                     <li><a href="profile.html">Profile</a></li>
                 </ul>
             </nav>
@@ -31,53 +31,30 @@
     </header>
 
     <main>
-        <a class="back-link" href="jeu.html">← Retour a la liste des jeux</a>
-
-        <section class="detail-card" id="detail-card" aria-live="polite">
-            <div class="media-wrap">
-                <img id="game-image" src="" alt="" />
-            </div>
-
-            <div class="content-wrap">
-                <p class="meta" id="game-meta"></p>
-                <h1 id="game-title"></h1>
-                <p class="long-desc" id="game-desc"></p>
-
-                <div class="actions">
-                    <a id="download-link" class="btn-download" href="#" target="_blank" rel="noopener noreferrer">Telecharger</a>
-                    <a class="btn-secondary" href="login.html">Acheter</a>
-                </div>
-            </div>
         </section>
+        <div class="text-main">
 
-        <section class="game-trailer">
-            <h2>Bande-annonce</h2>
-            <div class="trailer-video">
-                <!-- Example YouTube embed, replace VIDEO_ID as needed -->
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </section>
+        </div>
     </main>
-
     <footer>
-        <p>&copy; Tout droit réservé à Thierry Tavares, Dan Zorev et Jason Haran.</p>
+        <p>&copy; Tout droit réservé à Thierry Tavares da Costa, Dan Zorev et Jason Haran.</p>
         <div class="social-footer">
             <section class="social-person">
-                <p class="social-person__name">Thierry Tavares</p>
+                <p class="social-person__name">Thierry Tavares da Costa</p>
                 <div class="social-links">
-                    <a href="https://www.instagram.com/rdr2.enthusiast.cc/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram de Thierry Tavares" title="Instagram">
+                    <a href="https://www.instagram.com/rdr2.enthusiast.cc/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram de Thierry Tavares da Costa" title="Instagram">
                         <svg viewBox="0 0 24 24" aria-hidden="true">
                             <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
                             <circle cx="12" cy="12" r="4"></circle>
                             <circle cx="17.5" cy="6.5" r="1.1" class="social-link__fill"></circle>
                         </svg>
                     </a>
-                    <a href="https://www.tiktok.com/@rdr2_enthusiastz" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok de Thierry Tavares" title="TikTok">
+                    <a href="https://www.tiktok.com/@rdr2_enthusiastz" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok de Thierry Tavares da Costa" title="TikTok">
                         <svg viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M14 4c1 2 2.5 3.3 4.5 3.7V11c-1.5-.1-2.9-.6-4.1-1.4v4.9a5.4 5.4 0 1 1-5.4-5.4c.4 0 .8 0 1.2.1v3.1a2.3 2.3 0 1 0 1.8 2.2V4H14Z" class="social-link__fill"></path>
                         </svg>
                     </a>
-                    <a href="https://github.com/thitav09-ui" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub de Thierry Tavares" title="GitHub">
+                    <a href="https://github.com/thitav09-ui" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub de Thierry Tavares da Costa" title="GitHub">
                         <svg viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.4-1-.9-1.3-.9-1.3-.8-.5.1-.5.1-.5.9.1 1.4.9 1.4.9.8 1.3 2 1 2.5.7.1-.6.3-1 .6-1.3-2.3-.3-4.7-1.1-4.7-5A4 4 0 0 1 6.4 8a3.7 3.7 0 0 1 .1-2.7s.8-.3 2.8 1A9.6 9.6 0 0 1 12 6c.9 0 1.8.1 2.7.4 2-1.3 2.8-1 2.8-1A3.7 3.7 0 0 1 17.6 8a4 4 0 0 1 1.1 2.8c0 3.9-2.4 4.7-4.8 5 .3.2.7.8.7 1.7v2.5c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5Z" class="social-link__fill"></path>
                         </svg>
@@ -129,11 +106,7 @@
                 </div>
             </section>
         </div>
-    </footer>
-
-    
     <script src="js/games.js"></script>
-    <script src="js/game-detail.js"></script>
     <script src="js/search.js"></script>
 </body>
 

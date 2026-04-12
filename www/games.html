@@ -7,7 +7,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/jeu.css">
+    <link rel="stylesheet" href="css/games.css">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self';
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        font-src 'self' https://fonts.gstatic.com;
+        img-src 'self' data: https://*.googleusercontent.com;
+        frame-src https://www.youtube.com;
+        connect-src 'self';
+        form-action 'self' https://accounts.google.com;
+        base-uri 'self';
+    ">
     <title>Game Store – Jeux</title>
 </head>
 
@@ -19,8 +30,8 @@
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="about.html">À propos</a></li>
-                    <li><a href="avis.html">Avis</a></li>
-                    <li><a href="jeu.html" class="active">Jeux</a></li>
+                    <li><a href="reviews.html">Avis</a></li>
+                    <li><a href="games.html" class="active">Jeux</a></li>
                     <li><a href="profile.html">Profile</a></li>
                 </ul>
             </nav>
@@ -33,146 +44,146 @@
     <main>
             <div class="game-block-main">
                 <section class="block1 game-card" data-name="Counter-Strike 2" data-price="Free" data-date="2023-09-27" data-desc="Le FPS compétitif ultime, nouvelle génération. (20% de réduction)">
-                    <img src="./img/jeux/CS2.png" alt="cs2">
+                    <img src="./img/games/CS2.png" alt="cs2">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
                 </section>
                 <section class="block10 game-card" data-name="Red Dead Redemption 2" data-price="59€" data-date="2018-10-26" data-desc="Western épique en monde ouvert, Rockstar Games. (30% de réduction)">
-                    <img src="./img/jeux/RDR2.jpg" alt="Red Dead Redemption 2">
+                    <img src="./img/games/RDR2.jpg" alt="Red Dead Redemption 2">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
                 </section>
 
                 <section class="block11 game-card" data-name="Silent Hill 2 Remake" data-price="79€" data-date="2024" data-desc="Remake du classique survival horror.">
-                    <img src="./img/jeux/SH2R.jpg" alt="Silent Hill 2 Remake">
+                    <img src="./img/games/SH2R.jpg" alt="Silent Hill 2 Remake">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
                 </section>
 
                 <section class="block12 game-card" data-name="Resident Evil Requiem" data-price="79€" data-date="2026" data-desc="Nouvel opus de la saga Resident Evil.">
-                    <img src="./img/jeux/RE9.jpg" alt="Resident Evil Requiem">
+                    <img src="./img/games/RE9.jpg" alt="Resident Evil Requiem">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
                 </section>
 
                 <section class="block13 game-card" data-name="Cyberpunk 2077" data-price="39€" data-date="2020-12-10" data-desc="RPG futuriste en monde ouvert, CD Projekt. (25% de réduction)">
-                    <img src="./img/jeux/cyberpunk2077.jpg" alt="Cyberpunk 2077">
+                    <img src="./img/games/cyberpunk2077.jpg" alt="Cyberpunk 2077">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
                 </section>
 
                 <section class="block14 game-card" data-name="Metal Gear Solid 3" data-price="59€" data-date="2025" data-desc="Remake du chef-d'œuvre d'infiltration.">
-                    <img src="./img/jeux/mgs3.jpg" alt="Metal Gear Solid 3">
+                    <img src="./img/games/mgs3.jpg" alt="Metal Gear Solid 3">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
                 </section>
 
                 <section class="block15 game-card" data-name="The Legend of Zelda: Breath of the Wild" data-price="59€" data-date="2017-03-03" data-desc="Aventure épique sur Nintendo Switch. (15% de réduction)">
-                    <img src="./img/jeux/TLOZBOTW.jpg" alt="The Legend of Zelda: Breath of the Wild">
+                    <img src="./img/games/TLOZBOTW.jpg" alt="The Legend of Zelda: Breath of the Wild">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
                 </section>
 
                 <section class="block16 game-card" data-name="God of War Ragnarok" data-price="59€" data-date="2022-11-09" data-desc="Suite de l'aventure nordique de Kratos. (10% de réduction)">
-                    <img src="./img/jeux/GOWR.jpg" alt="God of War Ragnarok">
+                    <img src="./img/games/GOWR.jpg" alt="God of War Ragnarok">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
                 </section>
 
                 <section class="block17 game-card" data-name="Clair Obscur: Expedition 33" data-price="79€" data-date="2025" data-desc="RPG français au style artistique unique.">
-                    <img src="./img/jeux/expedition33.jpg" alt="Clair Obscur: Expedition 33">
+                    <img src="./img/games/expedition33.jpg" alt="Clair Obscur: Expedition 33">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
                 </section>
 
                 <section class="block18 game-card" data-name="The Last of Us Part II" data-price="49€" data-date="2020-06-19" data-desc="Aventure narrative intense, Naughty Dog. (20% de réduction)">
-                    <img src="./img/jeux/tlou2.jpg" alt="The Last of Us Part II">
+                    <img src="./img/games/tlou2.jpg" alt="The Last of Us Part II">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
                 </section>
 
                 <section class="block19 game-card" data-name="Fallout: New Vegas" data-price="19€" data-date="2010-10-22" data-desc="RPG post-apocalyptique culte. (35% de réduction)">
-                    <img src="./img/jeux/FNV.jpg" alt="Fallout: New Vegas">
+                    <img src="./img/games/FNV.jpg" alt="Fallout: New Vegas">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
                 </section>
 
                 <section class="block20 game-card" data-name="The Witcher 3: Wild Hunt" data-price="39€" data-date="2015-05-19" data-desc="RPG d'action en monde ouvert, CD Projekt. (20% de réduction)">
-                    <img src="./img/jeux/TW3.jpg" alt="The Witcher 3: Wild Hunt">
+                    <img src="./img/games/TW3.jpg" alt="The Witcher 3: Wild Hunt">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
                 </section>
 
                 <section class="block21 game-card" data-name="Grand Theft Auto V" data-price="29€" data-date="2013-09-17" data-desc="Action, aventure et chaos à Los Santos. (30% de réduction)">
-                    <img src="./img/jeux/gta5.jpg" alt="Grand Theft Auto V">
+                    <img src="./img/games/gta5.jpg" alt="Grand Theft Auto V">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
                 </section>
 
                 <section class="block2 game-card" data-name="Battlefield 6" data-price="59€" data-date="2025-10-15" data-desc="Champ de bataille moderne, multijoueur massif.">
-                    <img src="./img/jeux/Battlefield6.png" alt="bf6">
+                    <img src="./img/games/Battlefield6.png" alt="bf6">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
                 </section>
                 
                 <section class="block3 game-card" data-name="Forza Horizon 5" data-price="49€" data-date="2021-11-09" data-desc="Course automobile en monde ouvert au Mexique. (10% de réduction)">
-                    <img src="./img/jeux/FH5.jpg" alt="fh5">
+                    <img src="./img/games/FH5.jpg" alt="fh5">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
                 </section>
 
                 <section class="block4 game-card" data-name="Hearts of Iron IV" data-price="39€" data-date="2016-06-06" data-desc="Stratégie militaire Seconde Guerre mondiale. (25% de réduction)">
-                    <img src="./img/jeux/HOI4.jpg" alt="hoiv4">
+                    <img src="./img/games/HOI4.jpg" alt="hoiv4">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
                 </section>
 
                 <section class="block5 game-card" data-name="Bodycam" data-price="29€" data-date="2024-05-01" data-desc="Shooter immersif à la première personne.">
-                    <img src="./img/jeux/BODYCAM.jpg" alt="bodycam">
+                    <img src="./img/games/BODYCAM.jpg" alt="bodycam">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
                 </section>
 
                 <section class="block6 game-card" data-name="Ghost of Tsushima" data-price="59€" data-date="2024-05-16" data-desc="Aventure samouraï en monde ouvert.">
-                    <img src="./img/jeux/GOT.jpg" alt="GOT">
+                    <img src="./img/games/GOT.jpg" alt="GOT">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
                 </section>
 
                 <section class="block7 game-card" data-name="Euro Truck Simulator 2" data-price="19€" data-date="2012-10-19" data-desc="Simulation de conduite de camions en Europe. (40% de réduction)">
-                    <img src="./img/jeux/ETS2.jpg" alt="ets2">
+                    <img src="./img/games/ETS2.jpg" alt="ets2">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
                 </section>
 
                 <section class="block8 game-card" data-name="Helldivers 2" data-price="39€" data-date="2024-02-08" data-desc="Coopération intense contre des hordes aliens.">
-                    <img src="./img/jeux/Helldivers.jpg" alt="helldivers2">
+                    <img src="./img/games/Helldivers.jpg" alt="helldivers2">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
                 </section>
 
                 <section class="block9 game-card" data-name="Dead Space Remake" data-price="59€" data-date="2023-01-27" data-desc="Survival horror spatial, remake du classique. (15% de réduction)">
-                    <img src="./img/jeux/DeadSpace.jpg" alt="deadspace">
+                    <img src="./img/games/DeadSpace.jpg" alt="deadspace">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
@@ -197,7 +208,7 @@
                 const id = slugify(gameName);
 
                 const goToDetails = () => {
-                    window.location.href = `jeu-detail.html?id=${encodeURIComponent(id)}`;
+                    window.location.href = `game-detail.html?id=${encodeURIComponent(id)}`;
                 };
 
                 card.addEventListener('click', (event) => {
@@ -217,24 +228,24 @@
         })();
     </script>
     <footer>
-        <p>&copy; Tout droit réservé à Thierry Tavares, Dan Zorev et Jason Haran.</p>
+        <p>&copy; Tout droit réservé à Thierry Tavares da Costa, Dan Zorev et Jason Haran.</p>
         <div class="social-footer">
             <section class="social-person">
-                <p class="social-person__name">Thierry Tavares</p>
+                <p class="social-person__name">Thierry Tavares da Costa</p>
                 <div class="social-links">
-                    <a href="https://www.instagram.com/rdr2.enthusiast.cc/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram de Thierry Tavares" title="Instagram">
+                    <a href="https://www.instagram.com/rdr2.enthusiast.cc/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram de Thierry Tavares da Costa" title="Instagram">
                         <svg viewBox="0 0 24 24" aria-hidden="true">
                             <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
                             <circle cx="12" cy="12" r="4"></circle>
                             <circle cx="17.5" cy="6.5" r="1.1" class="social-link__fill"></circle>
                         </svg>
                     </a>
-                    <a href="https://www.tiktok.com/@rdr2_enthusiastz" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok de Thierry Tavares" title="TikTok">
+                    <a href="https://www.tiktok.com/@rdr2_enthusiastz" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok de Thierry Tavares da Costa" title="TikTok">
                         <svg viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M14 4c1 2 2.5 3.3 4.5 3.7V11c-1.5-.1-2.9-.6-4.1-1.4v4.9a5.4 5.4 0 1 1-5.4-5.4c.4 0 .8 0 1.2.1v3.1a2.3 2.3 0 1 0 1.8 2.2V4H14Z" class="social-link__fill"></path>
                         </svg>
                     </a>
-                    <a href="https://github.com/thitav09-ui" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub de Thierry Tavares" title="GitHub">
+                    <a href="https://github.com/thitav09-ui" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub de Thierry Tavares da Costa" title="GitHub">
                         <svg viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.4-1-.9-1.3-.9-1.3-.8-.5.1-.5.1-.5.9.1 1.4.9 1.4.9.8 1.3 2 1 2.5.7.1-.6.3-1 .6-1.3-2.3-.3-4.7-1.1-4.7-5A4 4 0 0 1 6.4 8a3.7 3.7 0 0 1 .1-2.7s.8-.3 2.8 1A9.6 9.6 0 0 1 12 6c.9 0 1.8.1 2.7.4 2-1.3 2.8-1 2.8-1A3.7 3.7 0 0 1 17.6 8a4 4 0 0 1 1.1 2.8c0 3.9-2.4 4.7-4.8 5 .3.2.7.8.7 1.7v2.5c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5Z" class="social-link__fill"></path>
                         </svg>

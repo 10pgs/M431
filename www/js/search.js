@@ -9,7 +9,7 @@
         normalized: normalize(game.name)
     }));
 
-    // Inject lightweight styles for the dropdown (works across all pages using the shared search bar)
+    // Ajoute des styles légers pour la liste des suggestions (utile sur chaque page avec la barre de recherche)
     if (!document.getElementById('search-suggestion-styles')) {
         const style = document.createElement('style');
         style.id = 'search-suggestion-styles';
@@ -146,7 +146,7 @@
             window.location.href = 'no-games-found.html';
             return;
         }
-        window.location.href = `jeu-detail.html?id=${encodeURIComponent(slug)}`;
+        window.location.href = `game-detail.html?id=${encodeURIComponent(slug)}`;
     }
 
     searchBar.addEventListener('input', (event) => {

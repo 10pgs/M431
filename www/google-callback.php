@@ -1,4 +1,9 @@
 <?php
+session_set_cookie_params([
+    'httponly' => true,
+    'secure'   => isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on',
+    'samesite' => 'Lax'
+]);
 session_start();
 require_once 'config.php';
 
@@ -46,6 +51,7 @@ if (empty($userInfo['sub'])) {
 try {
     $pdo = new PDO('mysql:host=db;dbname=gamestore;charset=utf8mb4', 'user', 'userpassword');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
     // Insère si nouveau, sinon met à jour
     $stmt = $pdo->prepare("INSERT INTO utilisateur (username, email, auth_provider, google_sub) VALUES (?, ?, 'google', ?)

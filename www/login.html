@@ -8,6 +8,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/form.css">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self';
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        font-src 'self' https://fonts.gstatic.com;
+        img-src 'self' data: https://*.googleusercontent.com;
+        frame-src https://www.youtube.com;
+        connect-src 'self';
+        form-action 'self' https://accounts.google.com;
+        base-uri 'self';
+    ">
 </head>
 <body>
     <main>

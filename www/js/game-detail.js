@@ -7,8 +7,8 @@
         name: 'Jeu introuvable',
         price: '-',
         date: '-',
-        image: './img/jeux/CS2.png',
-        downloadUrl: 'jeu.html',
+        image: './img/games/CS2.png',
+        downloadUrl: 'games.html',
         longDesc: "Le jeu demande n'a pas ete trouve. Retourne a la liste pour en selectionner un autre."
     };
 
