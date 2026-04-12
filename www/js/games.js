@@ -3,7 +3,7 @@
     const data = {
         'counter-strike-2': {
             name: 'Counter-Strike 2',
-            price: 'Free',
+            price: 'Gratuit',
             date: '2023-09-27',
             image: './img/games/CS2.png',
             downloadUrl: 'https://store.steampowered.com/app/730/CounterStrike_2/',
@@ -22,7 +22,7 @@
         'silent-hill-2-remake': {
             name: 'Silent Hill 2 Remake',
             price: '79EUR',
-            date: '2024',
+            date: '2024-10-08',
             image: './img/games/SH2R.jpg',
             downloadUrl: 'https://store.steampowered.com/app/2124490/SILENT_HILL_2/',
             longDesc: "Silent Hill 2 Remake reinterprete un classique du survival horror avec une mise en scene plus moderne et une ambiance psychologique oppressante. Le jeu met l'accent sur l'atmosphere, l'exploration et les combats tendus, avec une narration centree sur la culpabilite et le traumatisme.",
@@ -31,9 +31,9 @@
         'resident-evil-requiem': {
             name: 'Resident Evil Requiem',
             price: '79EUR',
-            date: '2026',
+            date: '2026-02-27',
             image: './img/games/RE9.jpg',
-            downloadUrl: 'https://www.residentevil.com/',
+            downloadUrl: 'https://www.residentevil.com/requiem/en-us/',
             longDesc: "Resident Evil Requiem poursuit la tradition de la serie avec de nouvelles zones dangereuses, des ressources limitees et des affrontements intenses. Ce type d'opus melange en general action et horreur de survie avec une progression tendue et de nombreux moments memorables.",
             trailer: 'https://www.youtube.com/watch?v=T54OWinnymM'
         },
@@ -49,7 +49,7 @@
         'metal-gear-solid-3': {
             name: 'Metal Gear Solid 3',
             price: '59EUR',
-            date: '2025',
+            date: '2004-11-17',
             image: './img/games/mgs3.jpg',
             downloadUrl: 'https://store.steampowered.com/app/2417610/METAL_GEAR_SOLID_Delta_SNAKE_EATER/',
             longDesc: "Metal Gear Solid 3 est une reference du jeu d'infiltration, connue pour son ambiance espionnage et sa mise en scene forte. Dans cette version moderne, on retrouve une aventure tactique basee sur la discretion, l'observation et l'adaptation a l'environnement.",
@@ -69,14 +69,14 @@
             price: '59EUR',
             date: '2022-11-09',
             image: './img/games/GOWR.jpg',
-            downloadUrl: 'https://www.playstation.com/games/god-of-war-ragnarok/',
+            downloadUrl: 'https://store.steampowered.com/app/2322010/God_of_War_Ragnark/',
             longDesc: "God of War Ragnarok poursuit l'histoire de Kratos et Atreus dans une aventure epique inspiree de la mythologie nordique. Le jeu combine combats nerveux, mise en scene spectaculaire et narration emotionnelle avec des environnements tres soignes.",
             trailer: 'https://www.youtube.com/embed/EE-4GvjKcfs'
         },
         'clair-obscur-expedition-33': {
             name: 'Clair Obscur: Expedition 33',
             price: '79EUR',
-            date: '2025',
+            date: '2025-04-24',
             image: './img/games/expedition33.jpg',
             downloadUrl: 'https://store.steampowered.com/app/1903340/Clair_Obscur_Expedition_33/',
             longDesc: "Clair Obscur: Expedition 33 mise sur une direction artistique marquee et un univers original. Le jeu propose un RPG narratif ou les combats, la construction de groupe et l'ambiance visuelle contribuent a une experience plus dramatique et immersive.",
@@ -87,7 +87,7 @@
             price: '49EUR',
             date: '2020-06-19',
             image: './img/games/tlou2.jpg',
-            downloadUrl: 'https://www.playstation.com/games/the-last-of-us-part-ii-remastered/',
+            downloadUrl: 'https://store.steampowered.com/agecheck/app/2531310/',
             longDesc: "The Last of Us Part II est une aventure narrative intense axee sur la survie, les consequences morales et des personnages complexes. Le gameplay alterne infiltration, affrontements brutaux et exploration, avec une mise en scene tres cinematographique.",
             trailer: 'https://www.youtube.com/watch?v=vhII1qlcZ4E'
         },
@@ -123,7 +123,7 @@
             price: '59EUR',
             date: '2025-10-15',
             image: './img/games/Battlefield6.png',
-            downloadUrl: 'https://www.ea.com/games/battlefield',
+            downloadUrl: 'https://store.steampowered.com/agecheck/app/2807960/',
             longDesc: "Battlefield mise historiquement sur de grandes batailles multijoueur avec vehicules, destruction et jeu en escouade. Cet opus est pense pour les joueurs qui aiment les affrontements a grande echelle et la cooperation tactique.",
             trailer: 'https://www.youtube.com/watch?v=pgNCgJG0vnY'
         },
@@ -157,7 +157,7 @@
         'ghost-of-tsushima': {
             name: 'Ghost of Tsushima',
             price: '59EUR',
-            date: '2024-05-16',
+            date: '2020-07-17',
             image: './img/games/GOT.jpg',
             downloadUrl: 'https://store.steampowered.com/app/2215430/Ghost_of_Tsushima_DIRECTORS_CUT/',
             longDesc: "Ghost of Tsushima combine exploration poetique, combats au sabre tres lisibles et narration inspiree du cinema japonais. Son monde ouvert et son ambiance sonore soignee en font une experience contemplative autant qu'action.",

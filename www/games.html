@@ -43,7 +43,7 @@
 
     <main>
             <div class="game-block-main">
-                <section class="block1 game-card" data-name="Counter-Strike 2" data-price="Free" data-date="2023-09-27" data-desc="Le FPS compétitif ultime, nouvelle génération. (20% de réduction)">
+                <section class="block1 game-card" data-name="Counter-Strike 2" data-price="Gratuit" data-date="2023-09-27" data-desc="Le FPS compétitif ultime, nouvelle génération. (20% de réduction)">
                     <img src="./img/games/CS2.png" alt="cs2">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
@@ -56,14 +56,14 @@
                                     </div>
                 </section>
 
-                <section class="block11 game-card" data-name="Silent Hill 2 Remake" data-price="79€" data-date="2024" data-desc="Remake du classique survival horror.">
+                <section class="block11 game-card" data-name="Silent Hill 2 Remake" data-price="79€" data-date="2024-10-08" data-desc="Remake du classique survival horror.">
                     <img src="./img/games/SH2R.jpg" alt="Silent Hill 2 Remake">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
                                     </div>
                 </section>
 
-                <section class="block12 game-card" data-name="Resident Evil Requiem" data-price="79€" data-date="2026" data-desc="Nouvel opus de la saga Resident Evil.">
+                <section class="block12 game-card" data-name="Resident Evil Requiem" data-price="79€" data-date="2026-02-27" data-desc="Nouvel opus de la saga Resident Evil.">
                     <img src="./img/games/RE9.jpg" alt="Resident Evil Requiem">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
@@ -77,7 +77,7 @@
                                     </div>
                 </section>
 
-                <section class="block14 game-card" data-name="Metal Gear Solid 3" data-price="59€" data-date="2025" data-desc="Remake du chef-d'œuvre d'infiltration.">
+                <section class="block14 game-card" data-name="Metal Gear Solid 3" data-price="59€" data-date="2004-11-17" data-desc="Remake du chef-d'œuvre d'infiltration.">
                     <img src="./img/games/mgs3.jpg" alt="Metal Gear Solid 3">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
@@ -98,7 +98,7 @@
                                     </div>
                 </section>
 
-                <section class="block17 game-card" data-name="Clair Obscur: Expedition 33" data-price="79€" data-date="2025" data-desc="RPG français au style artistique unique.">
+                <section class="block17 game-card" data-name="Clair Obscur: Expedition 33" data-price="79€" data-date="2025-04-24" data-desc="RPG français au style artistique unique.">
                     <img src="./img/games/expedition33.jpg" alt="Clair Obscur: Expedition 33">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
@@ -161,7 +161,7 @@
                                     </div>
                 </section>
 
-                <section class="block6 game-card" data-name="Ghost of Tsushima" data-price="59€" data-date="2024-05-16" data-desc="Aventure samouraï en monde ouvert.">
+                <section class="block6 game-card" data-name="Ghost of Tsushima" data-price="59€" data-date="2020-07-17" data-desc="Aventure samouraï en monde ouvert.">
                     <img src="./img/games/GOT.jpg" alt="GOT">
                                     <div style="text-align:center; margin-top:10px;">
                                         <a href="login.html" class="btn-main">Acheter</a>
@@ -190,43 +190,7 @@
                 </section>
             </div>
     </main>
-    <script>
-        (function () {
-            const slugify = (value) => value
-                .toLowerCase()
-                .normalize('NFD')
-                .replace(/[\u0300-\u036f]/g, '')
-                .replace(/[^a-z0-9]+/g, '-')
-                .replace(/^-+|-+$/g, '');
-
-            document.querySelectorAll('.game-card').forEach((card) => {
-                card.style.cursor = 'pointer';
-                card.setAttribute('role', 'link');
-                card.setAttribute('tabindex', '0');
-
-                const gameName = card.dataset.name || '';
-                const id = slugify(gameName);
-
-                const goToDetails = () => {
-                    window.location.href = `game-detail.html?id=${encodeURIComponent(id)}`;
-                };
-
-                card.addEventListener('click', (event) => {
-                    if (event.target.closest('.btn-main')) {
-                        return;
-                    }
-                    goToDetails();
-                });
-
-                card.addEventListener('keydown', (event) => {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                        event.preventDefault();
-                        goToDetails();
-                    }
-                });
-            });
-        })();
-    </script>
+    <script src="js/cards.js"></script>
     <footer>
         <p>&copy; Tout droit réservé à Thierry Tavares da Costa, Dan Zorev et Jason Haran.</p>
         <div class="social-footer">
