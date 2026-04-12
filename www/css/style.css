@@ -18,6 +18,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
     gap: 18px;
     margin-bottom: 40px;
     padding: 18px 22px;
@@ -41,6 +44,12 @@ header {
 
 ul li { margin-bottom: 10px; list-style: none; }
 nav ul li a { display: flex; text-decoration: none; color: #1f2937; font-weight: 700; }
+nav ul li a.active {
+    text-decoration: underline;
+    text-decoration-color: #111827;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+}
 header nav ul li a { align-items: center; padding: 10px 16px; border-radius: 999px; }
 header nav ul {
     display: flex;

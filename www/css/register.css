@@ -40,6 +40,12 @@ body {
     flex-wrap: wrap;
 }
 
+.header-shell {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto 20px;
+}
+
 .header-actions nav { flex: 1 1 auto; }
 
 .search-form {

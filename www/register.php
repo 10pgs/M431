@@ -39,9 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="css/register.css">
 </head>
 <body>
-    <footer class="footer-note">
-        © Tout droit réservé à Thierry Tavares, Dan Zorev et Jason Haran.
-    </footer>
+    <div class="header-shell">
+        <footer class="footer-note">
+            © Tout droit réservé à Thierry Tavares, Dan Zorev et Jason Haran.
+        </footer>
+    </div>
     <div class="card">
         <div class="check">✓</div>
         <h1>Inscription réussie</h1>
