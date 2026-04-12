@@ -2,14 +2,14 @@
 session_start();
 require_once 'config.php';
 
-// ── 1. Validate CSRF state ──────────────────────────────────────────────────
+// 1) Vérifier le jeton CSRF
 if (empty($_GET['state']) || $_GET['state'] !== ($_SESSION['oauth_state'] ?? '')) {
     http_response_code(400);
     exit('Erreur de sécurité : état OAuth invalide.');
 }
 unset($_SESSION['oauth_state']);
 
-// ── 2. Handle user-denied consent ──────────────────────────────────────────
+// 2) Gérer un refus de consentement
 if (isset($_GET['error'])) {
     header('Location: login.html?error=' . urlencode($_GET['error']));
     exit();
@@ -20,7 +20,7 @@ if (empty($_GET['code'])) {
     exit();
 }
 
-// ── 3. Exchange authorization code for tokens ───────────────────────────────
+// 3) Échanger le code contre des jetons
 $tokenData = oauth2Post('https://oauth2.googleapis.com/token', [
     'code'          => $_GET['code'],
     'client_id'     => GOOGLE_CLIENT_ID,
@@ -34,7 +34,7 @@ if (empty($tokenData['access_token'])) {
     exit('Erreur lors de l\'échange du code OAuth. Vérifiez vos identifiants dans config.php.');
 }
 
-// ── 4. Fetch user info ──────────────────────────────────────────────────────
+// 4) Récupérer les infos du compte Google
 $userInfo = oauth2Get('https://www.googleapis.com/oauth2/v3/userinfo', $tokenData['access_token']);
 
 if (empty($userInfo['sub'])) {
@@ -42,12 +42,12 @@ if (empty($userInfo['sub'])) {
     exit('Impossible de récupérer les informations du compte Google.');
 }
 
-// ── 4.5. Insert or update user in database ───────────────────────────────
+// 5) Enregistrer ou mettre à jour l'utilisateur
 try {
     $pdo = new PDO('mysql:host=db;dbname=gamestore;charset=utf8mb4', 'user', 'userpassword');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Try to insert, or update if exists
+    // Insère si nouveau, sinon met à jour
     $stmt = $pdo->prepare("INSERT INTO utilisateur (username, email, auth_provider, google_sub) VALUES (?, ?, 'google', ?)
         ON DUPLICATE KEY UPDATE username=VALUES(username), email=VALUES(email), google_sub=VALUES(google_sub)");
     $stmt->execute([
@@ -56,11 +56,10 @@ try {
         $userInfo['sub']
     ]);
 } catch (PDOException $e) {
-    // Optionally log error
-    // error_log($e->getMessage());
+    // À activer pour diagnostiquer : error_log($e->getMessage());
 }
 
-// ── 5. Store user in session and redirect ───────────────────────────────────
+// 6) Mémoriser la session et rediriger
 $_SESSION['user'] = [
     'id'      => $userInfo['sub'],
     'name'    => $userInfo['name']    ?? 'Utilisateur',
@@ -72,7 +71,7 @@ $_SESSION['user'] = [
 header('Location: index.html');
 exit();
 
-// ── Helpers ─────────────────────────────────────────────────────────────────
+// Fonctions utilitaires OAuth
 function oauth2Post(string $url, array $data): array
 {
     $ch = curl_init($url);

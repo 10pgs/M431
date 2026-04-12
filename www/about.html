@@ -110,22 +110,8 @@
             </section>
         </div>
         </footer>
-    <script>
-        const GAME_DETAILS = window.GAME_DETAILS || {};
-        const searchBar = document.getElementById('search-bar');
-        if (searchBar) {
-            searchBar.addEventListener('input', function () {
-                const query = this.value.toLowerCase();
-                const results = Object.entries(GAME_DETAILS).filter(([slug, game]) =>
-                    game.name.toLowerCase().includes(query)
-                );
-                if (results.length > 0) {
-                    const [slug] = results[0];
-                    window.location.href = 'jeu-detail.html?id=' + slug;
-                }
-            });
-        }
-    </script>
+    <script src="js/games.js"></script>
+    <script src="js/search.js"></script>
 </body>
 
 </html>

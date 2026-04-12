@@ -1,18 +1,18 @@
 <?php
-// Register user in the database
+// Inscrit l'utilisateur en base
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
     $password = $_POST['password'] ?? '';
     $creditcard = preg_replace('/\D/', '', $_POST['creditcard'] ?? '');
 
-    // Basic validation
+    // Vérifications de base
     if (!$username || !$password || strlen($creditcard) !== 16) {
         echo "<h2>Erreur : Veuillez remplir tous les champs correctement.</h2>";
         echo '<a href="form.html">Retour</a>';
         exit();
     }
 
-    // Hash password
+    // Hachage du mot de passe
     $password_hash = password_hash($password, PASSWORD_DEFAULT);
     $card_last4 = substr($creditcard, -4);
 
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdo = new PDO('mysql:host=db;dbname=gamestore;charset=utf8mb4', 'user', 'userpassword');
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // Insert user
+        // Ajout de l'utilisateur
         $stmt = $pdo->prepare("INSERT INTO utilisateur (username, password_hash, card_last4) VALUES (?, ?, ?)");
         $stmt->execute([$username, $password_hash, $card_last4]);
 

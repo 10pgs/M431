@@ -2,7 +2,7 @@
 session_start();
 require_once 'config.php';
 
-// Generate a random CSRF state token and store it in session
+// Génère un jeton CSRF et le garde en session
 $state = bin2hex(random_bytes(16));
 $_SESSION['oauth_state'] = $state;
 
@@ -18,4 +18,3 @@ $params = http_build_query([
 
 header('Location: https://accounts.google.com/o/oauth2/v2/auth?' . $params);
 exit();
-
