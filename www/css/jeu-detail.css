@@ -13,6 +13,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 18px;
     margin-bottom: 30px;
     padding: 18px 22px;
     border: 1px solid rgba(15, 23, 42, 0.08);
@@ -58,6 +59,37 @@ nav ul li a {
 nav ul li a:hover {
     background: linear-gradient(135deg, rgba(255, 122, 24, 0.14), rgba(37, 99, 235, 0.14));
 }
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1.5px solid #d1d5db;
+    border-radius: 12px;
+    padding: 8px 12px;
+    min-width: 260px;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+    margin-left: auto;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background: transparent;
+    padding: 4px 6px;
+    width: 100%;
+}
+
+.search-input::placeholder { color: #9ca3af; }
 
 main {
     max-width: 1180px;

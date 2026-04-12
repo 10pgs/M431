@@ -4,39 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/jeu.css">
     <title>Game Store – Les jeux</title>
 </head>
 
 <body>
     <header>
-        <h1>Game Store</h1>
-        <nav>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
-            <ul>
-                <li>
-                    <a href="index.html">Accueil</a>
-                </li>
-
-                <li>
-                    <a href="about.html">À propos</a>
-                </li>
-
-                <li>
-                    <a href="avis.html">Avis</a>
-                </li>
-
-                <li>
-                    <a href="jeu.html">Les jeux</a>
-                </li>
-                <li>
-                    <a href="profile.html">Profile</a>
-                </li>
-            </ul>
-
-        </nav>
+        <a class="brand-mark" href="index.html">Game Store</a>
+        <div class="header-actions">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="avis.html">Avis</a></li>
+                    <li><a href="jeu.html">Les jeux</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </nav>
+            <form id="search-form" class="search-form" action="javascript:void(0);">
+                <input class="search-input" type="text" id="search-bar" placeholder="Rechercher un jeu...">
+            </form>
+        </div>
     </header>
 
     <main>
@@ -295,6 +286,21 @@
                 </div>
             </section>
         </div>
+    <script>
+        const GAME_DETAILS = window.GAME_DETAILS || {};
+        const searchBar = document.getElementById('search-bar');
+        if (searchBar) {
+            searchBar.addEventListener('input', function () {
+                const query = this.value.toLowerCase();
+                const results = Object.entries(GAME_DETAILS).filter(([slug, game]) =>
+                    game.name.toLowerCase().includes(query)
+                );
+                if (results.length > 0) {
+                    const [slug] = results[0];
+                    window.location.href = 'jeu-detail.html?id=' + slug;
+                }
+            });
+        }
+    </script>
 </body>
-
-        <a href="index.html" class="brand-mark">Game Store</a>
+</html>

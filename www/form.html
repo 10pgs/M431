@@ -10,25 +10,42 @@
     <link rel="stylesheet" href="css/form.css">
 </head>
 <body>
+    <header>
+        <a href="index.html" class="brand-mark">Game Store</a>
+        <div class="header-actions">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                    <li><a href="avis.html">Avis</a></li>
+                    <li><a href="jeu.html">Jeux</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </nav>
+            <form id="search-form" class="search-form" action="javascript:void(0);">
+                <input class="search-input" type="text" id="search-bar" placeholder="Rechercher un jeu...">
+            </form>
+        </div>
+    </header>
     <!-- No header or nav for a clean form page -->
     <main>
-        <div class="centered-form">
-            <div class="form-container">
-                <h2>Créer un compte</h2>
-                <form action="register.php" method="POST" autocomplete="off">
+        <div class="form-page">
+            <section class="form-card">
+                <h2 class="form-title">Créer un compte</h2>
+                <form class="signup-form" action="register.php" method="POST" autocomplete="off">
                     <label for="username">Nom d'utilisateur</label>
-                    <input type="text" id="username" name="username" required>
+                    <input class="text-input" type="text" id="username" name="username" required>
 
                     <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" required>
+                    <input class="text-input" type="password" id="password" name="password" required>
 
                     <label for="creditcard">Carte bancaire</label>
-                    <input type="text" id="creditcard" name="creditcard" pattern="[0-9]{16}" maxlength="16" placeholder="1234 5678 9012 3456" required>
+                    <input class="text-input" type="text" id="creditcard" name="creditcard" pattern="[0-9]{16}" maxlength="16" placeholder="1234 5678 9012 3456" required>
 
-                    <button type="submit">Créer un compte</button>
+                    <button class="primary-button" type="submit">Créer un compte</button>
                 </form>
-                <div class="or">ou</div>
-                <a class="google-btn" href="google-login.php">
+                <div class="divider">ou</div>
+                <a class="google-button" href="google-login.php">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22" style="flex-shrink:0">
                         <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
                         <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
@@ -37,7 +54,7 @@
                     </svg>
                     S'inscrire avec Google
                 </a>
-            </div>
+            </section>
         </div>
     </main>
 </body>
