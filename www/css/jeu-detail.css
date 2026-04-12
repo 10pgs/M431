@@ -65,8 +65,11 @@ nav ul li a:hover {
     align-items: center;
     gap: 18px;
     flex: 1;
-    justify-content: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
+
+.header-actions nav { flex: 1 1 auto; }
 
 .search-form {
     display: flex;
@@ -76,6 +79,7 @@ nav ul li a:hover {
     border-radius: 12px;
     padding: 8px 12px;
     min-width: 260px;
+    flex: 0 0 280px;
     box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
     margin-left: auto;
 }
@@ -90,6 +94,13 @@ nav ul li a:hover {
 }
 
 .search-input::placeholder { color: #9ca3af; }
+
+.footer-note {
+    margin: 40px auto 20px;
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.95rem;
+}
 
 main {
     max-width: 1180px;

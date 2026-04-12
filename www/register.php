@@ -24,10 +24,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $pdo->prepare("INSERT INTO utilisateur (username, password_hash, card_last4) VALUES (?, ?, ?)");
         $stmt->execute([$username, $password_hash, $card_last4]);
 
-        echo "<h2>Inscription réussie !</h2>";
-        echo "<p>Bienvenue, <strong>" . htmlspecialchars($username) . "</strong> !</p>";
-        echo "<p>Votre carte: **** **** **** " . htmlspecialchars($card_last4) . "</p>";
-        echo '<a href="login.html">Se connecter</a>';
+        $safeUser = htmlspecialchars($username, ENT_QUOTES, 'UTF-8');
+        $safeLast4 = htmlspecialchars($card_last4, ENT_QUOTES, 'UTF-8');
+        echo <<<HTML
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inscription réussie – Game Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+    <footer class="footer-note">
+        © Tout droit réservé à Thierry Tavares, Dan Zorev et Jason Haran.
+    </footer>
+    <div class="card">
+        <div class="check">✓</div>
+        <h1>Inscription réussie</h1>
+        <p class="muted">Bienvenue dans Game Store, nous avons bien créé votre compte.</p>
+
+        <div class="grid">
+            <span class="label">Utilisateur</span>
+            <span class="value">{$safeUser}</span>
+            <span class="label">Carte</span>
+            <span class="value">**** **** **** {$safeLast4}</span>
+        </div>
+
+        <div class="actions">
+            <a class="btn btn-primary" href="login.html">Se connecter</a>
+            <a class="btn btn-secondary" href="index.html">Retour à l'accueil</a>
+        </div>
+    </div>
+</body>
+</html>
+HTML;
     } catch (PDOException $e) {
         if (str_contains($e->getMessage(), 'uq_utilisateur_username')) {
             echo "<h2>Erreur : Ce nom d'utilisateur existe déjà.</h2>";
