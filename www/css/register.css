@@ -24,12 +24,14 @@ body {
     padding: 32px;
 }
 
-.footer-note {
-    margin: 36px auto 10px;
-    text-align: center;
-    color: #6b7280;
-    font-size: 0.95rem;
+.success-shell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
+
+.footer-note { display: none; }
 
 .header-actions {
     display: flex;
@@ -40,11 +42,7 @@ body {
     flex-wrap: wrap;
 }
 
-.header-shell {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto 20px;
-}
+.header-shell { display: none; }
 
 .header-actions nav { flex: 1 1 auto; }
 
