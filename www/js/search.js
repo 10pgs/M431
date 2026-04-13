@@ -3,11 +3,15 @@
     if (!searchBar) return;
 
     const games = window.GAME_DETAILS || {};
-    const entries = Object.entries(games).map(([slug, game]) => ({
-        slug,
-        name: game.name,
-        normalized: normalize(game.name)
-    }));
+    const entries = Object.entries(games).map(([slug, game]) => {
+        const parsed = Date.parse(game.date || '');
+        return {
+            slug,
+            name: game.name,
+            normalized: normalize(game.name),
+            dateMs: Number.isNaN(parsed) ? 0 : parsed
+        };
+    });
 
     // Ajoute des styles légers pour la liste des suggestions (utile sur chaque page avec la barre de recherche)
     if (!document.getElementById('search-suggestion-styles')) {
@@ -88,13 +92,30 @@
     function bestMatch(query) {
         const qNorm = normalize(query);
         if (!qNorm) return null;
+
         let best = null;
-        let bestScore = Infinity;
+
+        const better = (cand, current) => {
+            if (!current) return true;
+            const aStarts = cand.normalized.startsWith(qNorm);
+            const bStarts = current.normalized.startsWith(qNorm);
+            if (aStarts !== bStarts) return aStarts; // priorité au préfixe
+
+            const aScore = levenshtein(qNorm, cand.normalized) / Math.max(qNorm.length, cand.normalized.length, 1);
+            const bScore = levenshtein(qNorm, current.normalized) / Math.max(qNorm.length, current.normalized.length, 1);
+            if (aScore !== bScore) return aScore < bScore;
+
+            if (cand.dateMs !== current.dateMs) return cand.dateMs > current.dateMs; // plus récent
+
+            const ai = cand.normalized.indexOf(qNorm);
+            const bi = current.normalized.indexOf(qNorm);
+            if (ai !== bi) return ai < bi;
+
+            return cand.name.localeCompare(current.name) < 0;
+        };
+
         entries.forEach((entry) => {
-            const distance = levenshtein(qNorm, entry.normalized);
-            const normDistance = distance / Math.max(qNorm.length, entry.normalized.length, 1);
-            if (normDistance < bestScore) {
-                bestScore = normDistance;
+            if (better(entry, best)) {
                 best = entry;
             }
         });
@@ -113,6 +134,10 @@
         const matches = entries
             .filter((entry) => entry.normalized.includes(qNorm))
             .sort((a, b) => {
+                const aStarts = a.normalized.startsWith(qNorm);
+                const bStarts = b.normalized.startsWith(qNorm);
+                if (aStarts !== bStarts) return aStarts ? -1 : 1; // ceux qui commencent par la requête en premier
+                if (a.dateMs !== b.dateMs) return b.dateMs - a.dateMs; // puis le plus récent
                 const ai = a.normalized.indexOf(qNorm);
                 const bi = b.normalized.indexOf(qNorm);
                 if (ai !== bi) return ai - bi;
