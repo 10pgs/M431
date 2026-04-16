@@ -82,6 +82,12 @@ body {
     gap: 14px;
 }
 
+.error-card {
+    max-width: 480px;
+    border: 1px solid rgba(220, 38, 38, 0.14);
+    box-shadow: 0 22px 48px rgba(15, 23, 42, 0.12);
+}
+
 h1 {
     font-family: 'Sora', 'Space Grotesk', sans-serif;
     font-weight: 700;
@@ -89,7 +95,8 @@ h1 {
     letter-spacing: -0.03em;
 }
 
-.check {
+.check,
+.status-icon {
     width: 54px;
     height: 54px;
     border-radius: 16px;
@@ -100,6 +107,11 @@ h1 {
     font-weight: 800;
     font-size: 1.6rem;
     box-shadow: 0 10px 22px rgba(37,99,235,0.22);
+}
+
+.error-icon {
+    background: linear-gradient(135deg, #ef4444, #f97316);
+    box-shadow: 0 10px 22px rgba(239, 68, 68, 0.22);
 }
 
 .muted { color: var(--muted); }

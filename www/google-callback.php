@@ -5,7 +5,7 @@ session_set_cookie_params([
     'samesite' => 'Lax'
 ]);
 session_start();
-require_once 'config.php';
+require_once 'mail.php';
 
 // 1) Vérifier le jeton CSRF
 if (empty($_GET['state']) || $_GET['state'] !== ($_SESSION['oauth_state'] ?? '')) {
@@ -53,6 +53,18 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
+    $lookup = $pdo->prepare(
+        "SELECT id_utilisateur
+         FROM utilisateur
+         WHERE google_sub = ? OR email = ?
+         LIMIT 1"
+    );
+    $lookup->execute([
+        $userInfo['sub'],
+        $userInfo['email'] ?? null
+    ]);
+    $isNewUser = $lookup->fetch(PDO::FETCH_ASSOC) === false;
+
     // Insère si nouveau, sinon met à jour
     $stmt = $pdo->prepare("INSERT INTO utilisateur (username, email, auth_provider, google_sub) VALUES (?, ?, 'google', ?)
         ON DUPLICATE KEY UPDATE username=VALUES(username), email=VALUES(email), google_sub=VALUES(google_sub)");
@@ -61,6 +73,14 @@ try {
         $userInfo['email'] ?? null,
         $userInfo['sub']
     ]);
+
+    if (!empty($userInfo['email'])) {
+        send_auth_email(
+            $userInfo['email'],
+            $userInfo['name'] ?? 'Utilisateur',
+            $isNewUser ? 'signup' : 'login'
+        );
+    }
 } catch (PDOException $e) {
     // À activer pour diagnostiquer : error_log($e->getMessage());
 }

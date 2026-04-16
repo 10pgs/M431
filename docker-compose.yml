@@ -1,13 +1,18 @@
-
-version: '3.8'
 services:
   web:
     build: .
-    container_name: php-web
     ports:
       - "80:80"
     volumes:
       - ./www:/var/www/html
+    environment:
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_ENCRYPTION: ${SMTP_ENCRYPTION:-tls}
+      SMTP_USERNAME: ${SMTP_USERNAME:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      MAIL_FROM_ADDRESS: ${MAIL_FROM_ADDRESS:-}
+      MAIL_FROM_NAME: ${MAIL_FROM_NAME:-Game Store}
     depends_on:
       - db
 
@@ -15,16 +20,18 @@ services:
     image: phpmyadmin/phpmyadmin
     restart: always
     ports:
-      - "8080:80"
+      - "8081:80"
     environment:
       PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: GamestoreFunctional
       MYSQL_ROOT_PASSWORD: GamestoreFunctional
     depends_on:
       - db
 
   db:
     image: mysql:8.0
-    container_name: mysql-db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: GamestoreFunctional
@@ -35,6 +42,12 @@ services:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/001-schema.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-pGamestoreFunctional"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
 
 volumes:
   db_data:
