@@ -93,6 +93,9 @@
         const qNorm = normalize(query);
         if (!qNorm) return null;
 
+        const candidates = entries.filter((entry) => entry.normalized.includes(qNorm));
+        if (!candidates.length) return null;
+
         let best = null;
 
         const better = (cand, current) => {
@@ -114,7 +117,7 @@
             return cand.name.localeCompare(current.name) < 0;
         };
 
-        entries.forEach((entry) => {
+        candidates.forEach((entry) => {
             if (better(entry, best)) {
                 best = entry;
             }
