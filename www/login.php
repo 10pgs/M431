@@ -91,7 +91,7 @@ echo <<<HTML
         <h1>Connexion reussie</h1>
         <p class="muted">Bienvenue, <strong>{$safeUser}</strong>.</p>
         <div class="actions">
-            <a class="btn btn-primary" href="index.html">Retour a l'accueil</a>
+            <a class="btn btn-primary" href="profile.php">Voir mon profil</a>
         </div>
     </div>
 </body>
