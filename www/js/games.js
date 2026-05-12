@@ -52,7 +52,7 @@
             date: '2004-11-17',
             image: './img/games/mgs3.jpg',
             downloadUrl: 'https://store.steampowered.com/app/2417610/METAL_GEAR_SOLID_Delta_SNAKE_EATER/',
-            longDesc: "Metal Gear Solid 3 est une reference du jeu d'infiltration, connue pour son ambiance espionnage et sa mise en scene forte. Dans cette version moderne, on retrouve une aventure tactique basee sur la discretion, l'observation et l'adaptation a l'environnement.",
+            longDesc: "Metal Gear Solid 3: Snake Eater est le jeu original de 2004, une reference de l'infiltration et de l'espionnage. Il suit Naked Snake dans une mission en pleine jungle, avec une aventure tactique basee sur la discretion, la survie, l'observation et l'adaptation a l'environnement.",
             trailer: 'https://www.youtube.com/watch?v=cGJ-vqsG4Js'
         },
         'the-legend-of-zelda-breath-of-the-wild': {
