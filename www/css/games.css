@@ -152,9 +152,6 @@ main {
     transform: scale(1.05);
 }
 
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Playfair+Display:wght@600&display=swap');
-
 .game-card::after {
     content: attr(data-name) '\A' attr(data-price) ' | ' attr(data-date) '\A' attr(data-desc);
     white-space: pre-line;
@@ -168,7 +165,7 @@ main {
     font-size: 1.08rem;
     line-height: 1.7;
     letter-spacing: 0.04em;
-    font-family: 'Playfair Display', 'Montserrat', serif;
+    font-family: 'MuseoModerno', 'Space Grotesk', sans-serif;
     border-radius: 0 0 12px 12px;
     opacity: 0;
     pointer-events: none;
