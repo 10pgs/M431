@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -32,7 +32,7 @@
                     <li><a href="about.html">À propos</a></li>
                     <li><a href="reviews.html">Avis</a></li>
                     <li><a href="games.html">Jeux</a></li>
-                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="profile.php">Profil</a></li>
                 </ul>
             </nav>
             <form id="search-form" class="search-form" action="javascript:void(0);">
@@ -42,106 +42,112 @@
     </header>
 
     <main>
-        <section id="home">
-            <h2>Bienvenue au Game Store</h2>
-            <a href="games.html">notre collection de jeux vidéo.</a>
+        <section id="home" class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">Catalogue gaming</p>
+                <h1>Game Store</h1>
+                <p class="hero-text">Découvrez une sélection de jeux vidéo avec prix, dates de sortie, fiches détaillées et bandes-annonces réunies dans une interface simple.</p>
+            </div>
             <div class="hero-actions">
-                <a href="form.html" class="btn-main btn-main--primary">S'inscrire</a>
-                <a href="login.html" class="btn-main btn-main--secondary">Se connecter</a>
+                <a href="games.html" class="btn-main btn-main--primary">Voir les jeux</a>
+                <a href="form.html" class="btn-main btn-main--secondary">Créer un compte</a>
             </div>
         </section>
-        <img src="img/Header_1.jpg" alt="banniere-home">
+        <img class="hero-image" src="img/Header_1.jpg" alt="Bannière Game Store">
+        <section class="stats-grid" aria-label="Résumé du catalogue">
+            <article>
+                <strong>21</strong>
+                <span>jeux référencés</span>
+            </article>
+            <article>
+                <strong>3</strong>
+                <span>créateurs du projet</span>
+            </article>
+            <article>
+                <strong>1</strong>
+                <span>catalogue JSON centralisé</span>
+            </article>
+        </section>
         <div class="text-main">
 
-            <section id="about">
+            <section id="about" class="info-panel">
                 <a href="about.html">
                     <h2>À propos de nous</h2>
                 </a>
                 <p>Nous sommes passionnés par les jeux vidéo et nous voulons partager cette passion avec vous.</p>
             </section>
 
-            <section id="project">
-                <a href="project.html">
-                    <h2>Nos Projets</h2>
+            <section id="project" class="info-panel">
+                <a href="games.html">
+                    <h2>Notre sélection</h2>
                 </a>
-                <p>Explorez nos derniers jeux et projets en cours.</p>
-            </section>
-
+                <p>Explorez les titres disponibles, comparez les prix et ouvrez les fiches détaillées en un clic.</p>
             </section>
         </div>
+        <section class="feature-section">
+            <div class="section-heading">
+                <p class="eyebrow">Fonctionnalités</p>
+                <h2>Ce que tu peux faire sur Game Store</h2>
+            </div>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <h3>Rechercher rapidement</h3>
+                    <p>La barre de recherche propose des suggestions en direct et redirige vers la fiche du jeu correspondant.</p>
+                </article>
+                <article class="feature-card">
+                    <h3>Comparer les jeux</h3>
+                    <p>Chaque carte affiche le nom, le prix, la date de sortie et une courte description au survol.</p>
+                </article>
+                <article class="feature-card">
+                    <h3>Consulter les fiches</h3>
+                    <p>Les pages de détail regroupent image, description longue, lien officiel et bande-annonce.</p>
+                </article>
+                <article class="feature-card">
+                    <h3>Gérer un profil</h3>
+                    <p>Le profil permet de retrouver les informations de compte et les achats quand l'utilisateur est connecté.</p>
+                </article>
+            </div>
+        </section>
+        <section class="steps-section">
+            <div class="section-heading">
+                <p class="eyebrow">Parcours</p>
+                <h2>Une navigation pensée pour aller vite</h2>
+            </div>
+            <ol class="steps-list">
+                <li>
+                    <span>01</span>
+                    <div>
+                        <h3>Choisis un jeu</h3>
+                        <p>Parcours la grille ou utilise la recherche pour trouver un titre précis.</p>
+                    </div>
+                </li>
+                <li>
+                    <span>02</span>
+                    <div>
+                        <h3>Lis les détails</h3>
+                        <p>Ouvre la fiche pour vérifier le prix, la date, la description et la vidéo.</p>
+                    </div>
+                </li>
+                <li>
+                    <span>03</span>
+                    <div>
+                        <h3>Connecte-toi</h3>
+                        <p>Crée un compte ou connecte-toi pour accéder aux actions d'achat et au profil.</p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+        <section class="spotlight-section">
+            <div>
+                <p class="eyebrow">Sélection</p>
+                <h2>Des genres variés dans le même catalogue</h2>
+                <p>FPS compétitif, RPG narratif, simulation, horreur, course ou aventure en monde ouvert : le catalogue rassemble plusieurs styles pour faciliter la découverte.</p>
+            </div>
+            <a href="games.html" class="btn-main btn-main--primary">Explorer le catalogue</a>
+        </section>
     </main>
-    <footer>
-        <p>&copy; Tout droit réservé à Thierry Tavares da Costa, Dan Zorev et Jason Haran.</p>
-        <div class="social-footer">
-            <section class="social-person">
-                <p class="social-person__name">Thierry Tavares da Costa</p>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/rdr2.enthusiast.cc/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram de Thierry Tavares da Costa" title="Instagram">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
-                            <circle cx="12" cy="12" r="4"></circle>
-                            <circle cx="17.5" cy="6.5" r="1.1" class="social-link__fill"></circle>
-                        </svg>
-                    </a>
-                    <a href="https://www.tiktok.com/@rdr2_enthusiastz" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok de Thierry Tavares da Costa" title="TikTok">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M14 4c1 2 2.5 3.3 4.5 3.7V11c-1.5-.1-2.9-.6-4.1-1.4v4.9a5.4 5.4 0 1 1-5.4-5.4c.4 0 .8 0 1.2.1v3.1a2.3 2.3 0 1 0 1.8 2.2V4H14Z" class="social-link__fill"></path>
-                        </svg>
-                    </a>
-                    <a href="https://github.com/thitav09-ui" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub de Thierry Tavares da Costa" title="GitHub">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.4-1-.9-1.3-.9-1.3-.8-.5.1-.5.1-.5.9.1 1.4.9 1.4.9.8 1.3 2 1 2.5.7.1-.6.3-1 .6-1.3-2.3-.3-4.7-1.1-4.7-5A4 4 0 0 1 6.4 8a3.7 3.7 0 0 1 .1-2.7s.8-.3 2.8 1A9.6 9.6 0 0 1 12 6c.9 0 1.8.1 2.7.4 2-1.3 2.8-1 2.8-1A3.7 3.7 0 0 1 17.6 8a4 4 0 0 1 1.1 2.8c0 3.9-2.4 4.7-4.8 5 .3.2.7.8.7 1.7v2.5c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5Z" class="social-link__fill"></path>
-                        </svg>
-                    </a>
-                </div>
-            </section>
-            <section class="social-person">
-                <p class="social-person__name">Dan Zorev</p>
-                <div class="social-links">
-                    <a href="#" class="social-link" aria-label="Instagram de Dan Zorev" title="Instagram">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
-                            <circle cx="12" cy="12" r="4"></circle>
-                            <circle cx="17.5" cy="6.5" r="1.1" class="social-link__fill"></circle>
-                        </svg>
-                    </a>
-                    <a href="#" class="social-link" aria-label="TikTok de Dan Zorev" title="TikTok">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M14 4c1 2 2.5 3.3 4.5 3.7V11c-1.5-.1-2.9-.6-4.1-1.4v4.9a5.4 5.4 0 1 1-5.4-5.4c.4 0 .8 0 1.2.1v3.1a2.3 2.3 0 1 0 1.8 2.2V4H14Z" class="social-link__fill"></path>
-                        </svg>
-                    </a>
-                    <a href="#" class="social-link" aria-label="GitHub de Dan Zorev" title="GitHub">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.4-1-.9-1.3-.9-1.3-.8-.5.1-.5.1-.5.9.1 1.4.9 1.4.9.8 1.3 2 1 2.5.7.1-.6.3-1 .6-1.3-2.3-.3-4.7-1.1-4.7-5A4 4 0 0 1 6.4 8a3.7 3.7 0 0 1 .1-2.7s.8-.3 2.8 1A9.6 9.6 0 0 1 12 6c.9 0 1.8.1 2.7.4 2-1.3 2.8-1 2.8-1A3.7 3.7 0 0 1 17.6 8a4 4 0 0 1 1.1 2.8c0 3.9-2.4 4.7-4.8 5 .3.2.7.8.7 1.7v2.5c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5Z" class="social-link__fill"></path>
-                        </svg>
-                    </a>
-                </div>
-            </section>
-            <section class="social-person">
-                <p class="social-person__name">Jason Haran</p>
-                <div class="social-links">
-                    <a href="#" class="social-link" aria-label="Instagram de Jason Haran" title="Instagram">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
-                            <circle cx="12" cy="12" r="4"></circle>
-                            <circle cx="17.5" cy="6.5" r="1.1" class="social-link__fill"></circle>
-                        </svg>
-                    </a>
-                    <a href="#" class="social-link" aria-label="TikTok de Jason Haran" title="TikTok">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M14 4c1 2 2.5 3.3 4.5 3.7V11c-1.5-.1-2.9-.6-4.1-1.4v4.9a5.4 5.4 0 1 1-5.4-5.4c.4 0 .8 0 1.2.1v3.1a2.3 2.3 0 1 0 1.8 2.2V4H14Z" class="social-link__fill"></path>
-                        </svg>
-                    </a>
-                    <a href="#" class="social-link" aria-label="GitHub de Jason Haran" title="GitHub">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.4-1-.9-1.3-.9-1.3-.8-.5.1-.5.1-.5.9.1 1.4.9 1.4.9.8 1.3 2 1 2.5.7.1-.6.3-1 .6-1.3-2.3-.3-4.7-1.1-4.7-5A4 4 0 0 1 6.4 8a3.7 3.7 0 0 1 .1-2.7s.8-.3 2.8 1A9.6 9.6 0 0 1 12 6c.9 0 1.8.1 2.7.4 2-1.3 2.8-1 2.8-1A3.7 3.7 0 0 1 17.6 8a4 4 0 0 1 1.1 2.8c0 3.9-2.4 4.7-4.8 5 .3.2.7.8.7 1.7v2.5c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5Z" class="social-link__fill"></path>
-                        </svg>
-                    </a>
-                </div>
-            </section>
-        </div>
-    </footer>
-
+    <footer id="site-footer"></footer>
+    <script src="js/layout.js"></script>
     <script src="js/games.js"></script>
     <script src="js/search.js"></script>
 </body>

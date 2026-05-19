@@ -1,83 +1,84 @@
 (() => {
     const input = document.getElementById('search-bar');
-    if (!input) return;
+    if (!input || !window.GAMES_READY) return;
 
-    const games = Object.entries(window.GAME_DETAILS || {}).map(([slug, game]) => ({
-        slug,
-        name: game.name,
-        key: clean(game.name),
-        date: Date.parse(game.date || '') || 0
-    }));
+    window.GAMES_READY.then((games) => initSearch(input, games));
 
-    const list = document.createElement('ul');
-    list.className = 'search-suggestions';
-    list.hidden = true;
-    input.closest('form')?.appendChild(list);
+    function initSearch(input, gamesData) {
+        const games = gamesData.map((game) => ({
+            slug: game.slug,
+            name: game.name,
+            key: clean(game.name),
+            date: Date.parse(game.date || '') || 0
+        }));
 
-    addSuggestionStyles();
+        const list = document.createElement('ul');
+        list.className = 'search-suggestions';
+        list.hidden = true;
+        input.closest('form')?.appendChild(list);
+        addSuggestionStyles();
 
-    input.addEventListener('input', () => showSuggestions(input.value));
-    input.addEventListener('focus', () => {
-        list.hidden = !list.children.length;
-    });
+        input.addEventListener('input', () => showSuggestions(input.value));
+        input.addEventListener('focus', () => {
+            list.hidden = !list.children.length;
+        });
 
-    input.addEventListener('keydown', (event) => {
-        if (event.key !== 'Enter') return;
-        event.preventDefault();
+        input.addEventListener('keydown', (event) => {
+            if (event.key !== 'Enter') return;
+            event.preventDefault();
+            openGame(findGames(input.value)[0]?.slug);
+        });
 
-        const matches = findGames(input.value);
-        openGame(matches[0]?.slug);
-    });
+        list.addEventListener('click', (event) => {
+            const item = event.target.closest('li');
+            if (item) openGame(item.dataset.slug);
+        });
 
-    list.addEventListener('click', (event) => {
-        const item = event.target.closest('li');
-        if (item) openGame(item.dataset.slug);
-    });
+        document.addEventListener('click', (event) => {
+            if (event.target !== input && !list.contains(event.target)) {
+                list.hidden = true;
+            }
+        });
 
-    document.addEventListener('click', (event) => {
-        if (event.target !== input && !list.contains(event.target)) {
-            list.hidden = true;
+        function findGames(value) {
+            const query = clean(value.trim());
+            if (!query) return [];
+
+            return games
+                .filter((game) => game.key.includes(query))
+                .sort((a, b) => {
+                    const startDiff = Number(b.key.startsWith(query)) - Number(a.key.startsWith(query));
+                    if (startDiff) return startDiff;
+                    if (a.date !== b.date) return b.date - a.date;
+                    return a.name.localeCompare(b.name);
+                });
         }
-    });
+
+        function showSuggestions(value) {
+            const matches = findGames(value).slice(0, 6);
+            list.innerHTML = '';
+
+            if (!value.trim()) {
+                list.hidden = true;
+                return;
+            }
+
+            if (!matches.length) {
+                list.appendChild(makeItem('Aucun jeu trouve'));
+                list.hidden = false;
+                return;
+            }
+
+            matches.forEach((game) => list.appendChild(makeItem(game.name, game.slug)));
+            list.hidden = false;
+        }
+    }
 
     function clean(value) {
         return (value || '')
             .toLowerCase()
             .normalize('NFD')
             .replace(/[\u0300-\u036f]/g, '');
-    }
-
-    function findGames(value) {
-        const query = clean(value.trim());
-        if (!query) return [];
-
-        return games
-            .filter((game) => game.key.includes(query))
-            .sort((a, b) => {
-                const startDiff = Number(b.key.startsWith(query)) - Number(a.key.startsWith(query));
-                if (startDiff) return startDiff;
-                if (a.date !== b.date) return b.date - a.date;
-                return a.name.localeCompare(b.name);
-            });
-    }
-
-    function showSuggestions(value) {
-        const matches = findGames(value).slice(0, 6);
-        list.innerHTML = '';
-
-        if (!value.trim()) {
-            list.hidden = true;
-            return;
-        }
-
-        if (!matches.length) {
-            list.appendChild(makeItem('Aucun jeu trouve'));
-            list.hidden = false;
-            return;
-        }
-
-        matches.forEach((game) => list.appendChild(makeItem(game.name, game.slug)));
-        list.hidden = false;
     }
 
     function makeItem(text, slug = '') {

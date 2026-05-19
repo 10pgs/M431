@@ -80,11 +80,11 @@ $initial = strtoupper(substr((string) ($profile['username'] ?? $user['name'] ?? 
 
 <body>
     <header>
-        <a href="../index.html" class="brand-mark">Game Store</a>
+        <a href="index.html" class="brand-mark">Game Store</a>
         <div class="header-actions">
             <nav>
                 <ul>
-                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="index.html">Accueil</a></li>
                     <li><a href="about.html">A propos</a></li>
                     <li><a href="reviews.html">Avis</a></li>
                     <li><a href="games.html">Jeux</a></li>
@@ -175,10 +175,8 @@ $initial = strtoupper(substr((string) ($profile['username'] ?? $user['name'] ?? 
         <?php endif; ?>
     </main>
 
-    <footer>
-        <p>&copy; Tout droit reserve a Thierry Tavares da Costa, Dan Zorev et Jason Haran.</p>
-    </footer>
-
+    <footer id="site-footer"></footer>
+    <script src="js/layout.js"></script>
     <script src="js/games.js"></script>
     <script src="js/search.js"></script>
 </body>

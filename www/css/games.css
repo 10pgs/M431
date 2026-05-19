@@ -136,6 +136,7 @@ main {
     position: relative;
     overflow: hidden;
     border-radius: 12px;
+    cursor: pointer;
 }
 
 .game-block-main section img {
@@ -150,6 +151,26 @@ main {
 
 .game-block-main section img:hover {
     transform: scale(1.05);
+}
+
+.card-action {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 3;
+}
+
+.card-action .btn-main {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #111827;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
 }
 
 .game-card::after {
