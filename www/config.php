@@ -1,7 +1,7 @@
 <?php
 /**
  * Configuration chargee depuis l'environnement Docker/local.
- * Copier .env.example vers .env et y renseigner les valeurs privees.
+ * Renseigner les valeurs privees dans un fichier .env local ignore par Git.
  */
 if (!function_exists('app_env')) {
     function app_env(string $key, ?string $default = null): ?string
