@@ -1,40 +1,49 @@
 (() => {
-    const games = window.GAME_DETAILS || {};
+    if (!window.GAMES_READY) return;
 
-    const params = new URLSearchParams(window.location.search);
-    const gameId = params.get('id') || '';
-    const game = games[gameId] || {
-        name: 'Jeu introuvable',
-        price: '-',
-        date: '-',
-        image: './img/games/CS2.png',
-        downloadUrl: 'games.html',
-        longDesc: "Le jeu demande n'a pas ete trouve. Retourne a la liste pour en selectionner un autre."
-    };
+    window.GAMES_READY
+        .then(showGame)
+        .catch(() => showGame(null));
 
-    const title = document.getElementById('game-title');
-    const meta = document.getElementById('game-meta');
-    const desc = document.getElementById('game-desc');
-    const image = document.getElementById('game-image');
-    const downloadLink = document.getElementById('download-link');
+    function showGame() {
+        const gameId = new URLSearchParams(window.location.search).get('id') || '';
+        const game = window.GAME_DETAILS[gameId] || {
+            name: 'Jeu introuvable',
+            price: '-',
+            date: '-',
+            image: 'img/games/counter-strike-2.png',
+            downloadUrl: 'games.html',
+            longDesc: "Le jeu demande n'a pas ete trouve. Retourne a la liste pour en selectionner un autre."
+        };
 
-    if (title) title.textContent = game.name;
-    if (meta) meta.textContent = `${game.price} - Sortie: ${game.date}`;
-    if (desc) desc.textContent = game.longDesc;
-    if (image) {
-        image.src = game.image;
-        image.alt = game.name;
+        setText('game-title', game.name);
+        setText('game-meta', `${game.price} - Sortie: ${game.date}`);
+        setText('game-desc', game.longDesc);
+
+        const image = document.getElementById('game-image');
+        if (image) {
+            image.src = game.image;
+            image.alt = game.name;
+        }
+
+        const downloadLink = document.getElementById('download-link');
+        if (downloadLink) downloadLink.href = game.downloadUrl;
+
+        updateTrailer(game.trailer);
     }
-    if (downloadLink) downloadLink.href = game.downloadUrl;
 
-    updateTrailer(game);
+    function setText(id, value) {
+        const node = document.getElementById(id);
+        if (node) node.textContent = value;
+    }
 
-    function updateTrailer(g) {
+    function updateTrailer(url) {
         const zone = document.querySelector('.trailer-video');
         if (!zone) return;
-        const embedUrl = toEmbedUrl(g.trailer);
+
+        const embedUrl = toEmbedUrl(url);
         zone.innerHTML = embedUrl
-            ? `<iframe src="${embedUrl}" frameborder="0" allowfullscreen></iframe>`
+            ? `<iframe src="${embedUrl}" title="Bande-annonce" frameborder="0" allowfullscreen></iframe>`
             : '<p>Aucune bande-annonce disponible.</p>';
     }
 
