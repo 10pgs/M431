@@ -1,11 +1,7 @@
 <?php
 /**
- * Identifiants OAuth Google.
- * Pour les obtenir :
- * 1. https://console.cloud.google.com/
- * 2. APIs & Services → Credentials → Create OAuth 2.0 Client ID (type Web)
- * 3. URI de redirection autorisée : http://localhost/google-callback.php
- * 4. Renseigner le Client ID et le Client Secret ci-dessous.
+ * Configuration chargee depuis l'environnement Docker/local.
+ * Copier .env.example vers .env et y renseigner les valeurs privees.
  */
 if (!function_exists('app_env')) {
     function app_env(string $key, ?string $default = null): ?string
@@ -19,9 +15,9 @@ if (!function_exists('app_env')) {
     }
 }
 
-define('GOOGLE_CLIENT_ID',     '28340098458-eudnbtqaf7t8rf1iudoun59dc5723gvk.apps.googleusercontent.com');
-define('GOOGLE_CLIENT_SECRET', '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');
-define('GOOGLE_REDIRECT_URI',  'http://localhost/google-callback.php');
+define('GOOGLE_CLIENT_ID',     app_env('GOOGLE_CLIENT_ID', ''));
+define('GOOGLE_CLIENT_SECRET', app_env('GOOGLE_CLIENT_SECRET', ''));
+define('GOOGLE_REDIRECT_URI',  app_env('GOOGLE_REDIRECT_URI', 'http://localhost/google-callback.php'));
 define('SMTP_HOST',            app_env('SMTP_HOST', ''));
 define('SMTP_PORT',            (int) app_env('SMTP_PORT', '587'));
 define('SMTP_ENCRYPTION',      strtolower(app_env('SMTP_ENCRYPTION', 'tls') ?? 'tls'));

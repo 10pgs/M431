@@ -136,6 +136,7 @@ main {
     position: relative;
     overflow: hidden;
     border-radius: 12px;
+    cursor: pointer;
 }
 
 .game-block-main section img {
@@ -152,6 +153,25 @@ main {
     transform: scale(1.05);
 }
 
+.card-action {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 3;
+}
+
+.card-action .btn-main {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #111827;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+}
 .game-card::after {
     content: attr(data-name) '\A' attr(data-price) ' | ' attr(data-date) '\A' attr(data-desc);
     white-space: pre-line;
@@ -241,23 +261,50 @@ footer {
 }
 
 @media (max-width: 900px) {
+    body {
+        padding: 16px;
+    }
+
     header {
         flex-direction: column;
+        align-items: stretch;
         gap: 16px;
+        padding: 16px;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .header-actions nav {
+        width: 100%;
+        flex: 1 1 100%;
     }
 
     nav ul {
         flex-wrap: wrap;
         justify-content: center;
+        border-radius: 22px;
+        width: 100%;
+    }
+
+    .search-form {
+        flex: 1 1 100%;
+        width: 100%;
+        min-width: 0;
+        margin-left: 0;
     }
 
     main {
+        min-width: 0;
         margin: 16px 0;
         padding: 32px 20px;
     }
 
     .game-block-main {
         grid-template-columns: repeat(2, 1fr);
+        padding: 0;
     }
 }
 
@@ -269,6 +316,7 @@ footer {
     .brand-mark {
         width: 100%;
         text-align: center;
+        font-size: 1.45rem;
     }
 
     nav {
@@ -276,15 +324,47 @@ footer {
     }
 
     nav ul {
-        border-radius: 24px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-radius: 20px;
+        gap: 6px;
     }
 
     nav ul li,
     nav ul li a {
         width: 100%;
+        justify-content: center;
+        margin-bottom: 0;
+    }
+
+    main {
+        padding: 20px 14px;
+        border-radius: 20px;
     }
 
     .game-block-main {
         grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .game-block-main section {
+        aspect-ratio: 16 / 11;
+    }
+
+    .game-card::after {
+        padding: 14px 12px;
+        font-size: 0.9rem;
+        line-height: 1.45;
+        opacity: 1;
+    }
+}
+
+@media (max-width: 420px) {
+    nav ul {
+        grid-template-columns: 1fr;
+    }
+
+    .search-input {
+        font-size: 0.95rem;
     }
 }

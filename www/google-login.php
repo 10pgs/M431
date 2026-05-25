@@ -7,6 +7,11 @@ session_set_cookie_params([
 session_start();
 require_once 'config.php';
 
+if (GOOGLE_CLIENT_ID === '' || GOOGLE_CLIENT_SECRET === '') {
+    http_response_code(503);
+    exit('Connexion Google indisponible : configuration OAuth manquante.');
+}
+
 // Génère un jeton CSRF et le garde en session
 $state = bin2hex(random_bytes(16));
 $_SESSION['oauth_state'] = $state;

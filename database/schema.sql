@@ -92,9 +92,9 @@ CREATE INDEX idx_jeu_titre ON jeu(titre);
 -- Donnees minimales pour tester rapidement
 INSERT INTO jeu (slug, titre, description_courte, prix, date_sortie, image_url, download_url)
 VALUES
-  ('counter-strike-2', 'Counter-Strike 2', 'FPS competitif nouvelle generation', 0.00, '2023-09-27', './img/jeux/CS2.png', 'https://store.steampowered.com/app/730/CounterStrike_2/'),
-  ('red-dead-redemption-2', 'Red Dead Redemption 2', 'Western epique en monde ouvert', 59.00, '2018-10-26', './img/jeux/RDR2.jpg', 'https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/'),
-  ('cyberpunk-2077', 'Cyberpunk 2077', 'RPG futuriste en monde ouvert', 39.00, '2020-12-10', './img/jeux/cyberpunk2077.jpg', 'https://store.steampowered.com/app/1091500/Cyberpunk_2077/')
+  ('counter-strike-2', 'Counter-Strike 2', 'FPS competitif nouvelle generation', 0.00, '2023-09-27', 'img/games/counter-strike-2.png', 'https://store.steampowered.com/app/730/CounterStrike_2/'),
+  ('red-dead-redemption-2', 'Red Dead Redemption 2', 'Western epique en monde ouvert', 59.00, '2018-10-26', 'img/games/red-dead-redemption-2.jpg', 'https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/'),
+  ('cyberpunk-2077', 'Cyberpunk 2077', 'RPG futuriste en monde ouvert', 39.00, '2020-12-10', 'img/games/cyberpunk-2077.jpg', 'https://store.steampowered.com/app/1091500/Cyberpunk_2077/')
 ON DUPLICATE KEY UPDATE
   titre = VALUES(titre),
   prix = VALUES(prix),

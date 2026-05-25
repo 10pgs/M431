@@ -94,7 +94,7 @@ $_SESSION['user'] = [
     'auth'    => 'google',
 ];
 
-header('Location: index.html');
+header('Location: profile.php');
 exit();
 
 // Fonctions utilitaires OAuth
