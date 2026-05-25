@@ -6,7 +6,7 @@ Petite application vitrine pour naviguer dans une collection de jeux vidéo, aff
 1) Installe Docker et Docker Compose.  
 2) Depuis la racine du projet :  
    ```bash
-   docker-compose up --build
+   docker compose up --build
    ```  
 3) Ouvre le front sur http://localhost (les pages principales sont `index.html`, `games.html`, `game-detail.html`).
 
@@ -18,11 +18,12 @@ Petite application vitrine pour naviguer dans une collection de jeux vidéo, aff
 - `www/js/search.js` : recherche avec suggestions.  
 - `www/js/cards.js` : affiche les cartes de jeux depuis le JSON.  
 - `www/js/layout.js` : affiche le footer commun depuis le JSON.  
+- `docs/project/` : consigne, méthode et planning du projet.
 - `database/` : init SQL pour MySQL si besoin.  
 - `docker-compose.yml` : services web + base de données.
 
 ## Notes
-- Secrets OAuth Google sont définis dans `www/config.php` (à remplacer par tes valeurs locales).  
+- Copie `.env.example` vers `.env` et renseigne les identifiants OAuth Google uniquement dans `.env`, qui n'est pas versionne.
 - Les emails de connexion / creation de compte utilisent les variables `SMTP_HOST`, `SMTP_PORT`, `SMTP_ENCRYPTION`, `SMTP_USERNAME`, `SMTP_PASSWORD`, `MAIL_FROM_ADDRESS` et `MAIL_FROM_NAME` via `docker-compose.yml`.  
 - Les pages de succès (login/inscription) utilisent les styles de `css/register.css`.  
 - Pour ajouter ou corriger un jeu, modifie `www/data/games.json`.
