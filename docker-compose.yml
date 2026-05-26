@@ -3,6 +3,7 @@ services:
     build: .
     ports:
       - "80:80"
+      - "8082:80"
     volumes:
       - ./www:/var/www/html
     environment:
@@ -16,6 +17,11 @@ services:
       SMTP_PASSWORD: ${SMTP_PASSWORD:-}
       MAIL_FROM_ADDRESS: ${MAIL_FROM_ADDRESS:-}
       MAIL_FROM_NAME: ${MAIL_FROM_NAME:-Game Store}
+      DB_HOST: db
+      DB_NAME: gamestore
+      DB_USER: user
+      DB_PASSWORD: userpassword
+      DB_CHARSET: utf8mb4
     depends_on:
       - db
 
@@ -41,8 +47,6 @@ services:
       MYSQL_DATABASE: gamestore
       MYSQL_USER: user
       MYSQL_PASSWORD: userpassword
-    ports:
-      - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
       - ./database/schema.sql:/docker-entrypoint-initdb.d/001-schema.sql:ro
