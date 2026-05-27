@@ -329,6 +329,63 @@ footer {
     text-align: center;
 }
 
+.social-footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.social-person {
+    padding: 18px;
+    background: #fff;
+    border: 1px solid #e3e3e3;
+    border-radius: 14px;
+}
+
+.social-person__name {
+    margin: 0 0 12px;
+    color: #333;
+    font-weight: 700;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    background: #222;
+    color: #fff;
+    text-decoration: none;
+    transition: transform 180ms ease, background 180ms ease;
+}
+
+.social-link svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.8;
+}
+
+.social-link__fill {
+    fill: currentColor;
+    stroke: none;
+}
+
+.social-link:hover {
+    background: #4d4d4d;
+    transform: translateY(-2px);
+}
+
 @media (max-width: 900px) {
     header,
     .profile-hero,

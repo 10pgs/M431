@@ -73,7 +73,7 @@ $initial = strtoupper(substr((string) ($profile['username'] ?? $user['name'] ?? 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/profile.css?v=20260527-2">
     <title>Game Store - Profil</title>
 </head>
 
@@ -84,7 +84,7 @@ $initial = strtoupper(substr((string) ($profile['username'] ?? $user['name'] ?? 
             <nav>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
-                    <li><a href="about.html">A propos</a></li>
+                    <li><a href="about.html">À propos</a></li>
                     <li><a href="reviews.html">Avis</a></li>
                     <li><a href="games.html">Jeux</a></li>
                     <li><a href="profile.php" class="active">Profil</a></li>
@@ -175,7 +175,7 @@ $initial = strtoupper(substr((string) ($profile['username'] ?? $user['name'] ?? 
     </main>
 
     <footer id="site-footer"></footer>
-    <script src="js/layout.js"></script>
+    <script src="js/layout.js?v=20260527-2"></script>
     <script src="js/games.js"></script>
     <script src="js/search.js"></script>
 </body>
