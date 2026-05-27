@@ -1,0 +1,36 @@
+.brand-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 700;
+}
+
+.brand-logo {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.hero-logo {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.hero-title-row {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.hero-title-row .hero-logo {
+    width: 78px;
+    height: 78px;
+    object-fit: contain;
+    margin-bottom: 0;
+    flex-shrink: 0;
+}

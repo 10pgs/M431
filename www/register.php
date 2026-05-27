@@ -7,6 +7,7 @@ session_set_cookie_params([
 session_start();
 
 require_once 'mail.php';
+require_once 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: form.html');
@@ -34,9 +35,7 @@ $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 $cardLast4 = substr($creditcard, -4);
 
 try {
-    $pdo = new PDO('mysql:host=db;dbname=gamestore;charset=utf8mb4', 'user', 'userpassword');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $pdo = db_connection();
 
     $stmt = $pdo->prepare(
         "INSERT INTO utilisateur (username, email, password_hash, card_last4)

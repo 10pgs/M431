@@ -6,14 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/reviews.css">
-    <title>Game Store – Avis</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/reviews.css?v=20260527-4">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" href="css/logo.css">
+    <title>Game Store - Avis</title>
 </head>
 
 <body>
     <header>
-        <a href="index.html" class="brand-mark">Game Store</a>
+        <a href="index.html" class="brand-mark">
+            <img src="img/logo.png" alt="Logo Game Store" class="brand-logo">
+            <span>Game Store</span>
+        </a>
         <div class="header-actions">
             <nav>
                 <ul>
@@ -29,16 +36,66 @@
             </form>
         </div>
     </header>
-    <main>
-        <div class="text-main">
-            <h1>Avis</h1>
-            <p>Les avis des joueurs seront disponibles prochainement.</p>
-        </div>
+
+    <main class="reviews-page">
+        <section class="reviews-heading">
+            <div>
+                <p class="eyebrow">Avis des joueurs</p>
+                <h1>Publier un avis</h1>
+                <p>Choisis un jeu du catalogue, donne une note, puis partage ton retour avec les autres joueurs.</p>
+            </div>
+            <div class="auth-actions">
+                <a class="login-link" href="login.html" data-auth-guest>Se connecter</a>
+                <a class="login-link" href="profile.php" data-auth-user hidden>Mon profil</a>
+            </div>
+        </section>
+
+        <section class="review-panel">
+            <form id="review-form" class="review-form">
+                <div class="form-field form-field--game">
+                    <label for="review-game">Jeu</label>
+                    <select id="review-game" name="slug" required>
+                        <option value="">Chargement des jeux...</option>
+                    </select>
+                </div>
+
+                <div class="form-field form-field--note">
+                    <label for="review-note">Note</label>
+                    <select id="review-note" name="note" required>
+                        <option value="5">5 - Excellent</option>
+                        <option value="4">4 - Très bon</option>
+                        <option value="3">3 - Correct</option>
+                        <option value="2">2 - Moyen</option>
+                        <option value="1">1 - Décevant</option>
+                    </select>
+                </div>
+
+                <div class="form-field form-field--full">
+                    <label for="review-comment">Avis</label>
+                    <textarea id="review-comment" name="commentaire" rows="5" maxlength="1000"
+                        placeholder="Écris ton avis..." required></textarea>
+                </div>
+
+                <button type="submit">Publier l'avis</button>
+                <p id="review-feedback" class="review-feedback" hidden></p>
+            </form>
+        </section>
+
+        <section class="reviews-list-section">
+            <div class="section-title">
+                <h2>Avis publiés</h2>
+                <p id="reviews-empty">Aucun avis publié pour le moment.</p>
+            </div>
+            <div id="reviews-list" class="reviews-list"></div>
+        </section>
     </main>
+
     <footer id="site-footer"></footer>
+    <script src="js/auth-state.js?v=20260527-1"></script>
     <script src="js/layout.js"></script>
     <script src="js/games.js"></script>
     <script src="js/search.js"></script>
+    <script src="js/reviews.js"></script>
 </body>
 
 </html>

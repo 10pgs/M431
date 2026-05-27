@@ -36,6 +36,9 @@ header {
 
 .brand-mark {
     flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     font-family: 'Sora', 'Space Grotesk', sans-serif;
     font-size: 1.7rem;
     font-weight: 700;
@@ -44,6 +47,13 @@ header {
     border-radius: 16px;
     background: linear-gradient(135deg, rgba(255, 122, 24, 0.16), rgba(37, 99, 235, 0.12));
     text-decoration: none;
+}
+
+.brand-logo {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    display: block;
 }
 
 .header-actions {
@@ -82,22 +92,31 @@ nav ul li a {
     color: #1f2937;
     font-weight: 700;
     text-decoration: none;
-    transition: background 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+    background: transparent;
+    transition: transform 200ms ease, text-decoration-color 200ms ease;
 }
 
 nav ul li a.active {
-    background: #111827;
-    color: #fff;
+    color: #1f2937;
+    background: transparent;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
 }
 
-nav a:hover {
-    background: linear-gradient(135deg, rgba(255, 122, 24, 0.14), rgba(37, 99, 235, 0.14));
-    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+nav ul li a:hover {
+    color: #1f2937;
+    background: transparent;
+    box-shadow: none;
     transform: translateY(-2px);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
 }
 
 nav ul li a.active:hover {
-    background: #111827;
+    color: #1f2937;
+    background: transparent;
 }
 
 .search-form {
@@ -329,6 +348,63 @@ footer {
     text-align: center;
 }
 
+.social-footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.social-person {
+    padding: 18px;
+    background: #fff;
+    border: 1px solid #e3e3e3;
+    border-radius: 14px;
+}
+
+.social-person__name {
+    margin: 0 0 12px;
+    color: #333;
+    font-weight: 700;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    background: #222;
+    color: #fff;
+    text-decoration: none;
+    transition: transform 180ms ease, background 180ms ease;
+}
+
+.social-link svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.8;
+}
+
+.social-link__fill {
+    fill: currentColor;
+    stroke: none;
+}
+
+.social-link:hover {
+    background: #4d4d4d;
+    transform: translateY(-2px);
+}
+
 @media (max-width: 900px) {
     header,
     .profile-hero,
@@ -375,6 +451,10 @@ footer {
         width: 100%;
     }
 
+    .brand-mark {
+        justify-content: center;
+    }
+
     .search-form {
         min-width: 0;
         flex-basis: 100%;
@@ -388,6 +468,10 @@ footer {
     nav ul li a,
     .btn-main {
         width: 100%;
+    }
+
+    nav ul li a {
+        justify-content: center;
     }
 
     .purchase-item {
