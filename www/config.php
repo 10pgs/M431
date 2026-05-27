@@ -25,3 +25,9 @@ define('SMTP_USERNAME',        app_env('SMTP_USERNAME', ''));
 define('SMTP_PASSWORD',        app_env('SMTP_PASSWORD', ''));
 define('MAIL_FROM_ADDRESS',    app_env('MAIL_FROM_ADDRESS', ''));
 define('MAIL_FROM_NAME',       app_env('MAIL_FROM_NAME', 'Game Store'));
+
+define('DB_HOST',              app_env('DB_HOST', 'db'));
+define('DB_NAME',              app_env('DB_NAME', 'gamestore'));
+define('DB_USER',              app_env('DB_USER', 'user'));
+define('DB_PASSWORD',          app_env('DB_PASSWORD', 'userpassword'));
+define('DB_CHARSET',           app_env('DB_CHARSET', 'utf8mb4'));

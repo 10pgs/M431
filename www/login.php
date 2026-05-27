@@ -1,6 +1,7 @@
 <?php
 require_once 'auth-view.php';
 require_once 'mail.php';
+require_once 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: login.html');
@@ -28,9 +29,7 @@ if ($username === '' || $password === '') {
 }
 
 try {
-    $pdo = new PDO('mysql:host=db;dbname=gamestore;charset=utf8mb4', 'user', 'userpassword');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $pdo = db_connection();
 
     $stmt = $pdo->prepare(
         "SELECT id_utilisateur, username, email, password_hash

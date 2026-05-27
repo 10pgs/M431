@@ -6,6 +6,7 @@ session_set_cookie_params([
 ]);
 session_start();
 require_once 'mail.php';
+require_once 'db.php';
 
 // 1) Vérifier le jeton CSRF
 if (empty($_GET['state']) || $_GET['state'] !== ($_SESSION['oauth_state'] ?? '')) {
@@ -49,9 +50,7 @@ if (empty($userInfo['sub'])) {
 
 // 5) Enregistrer ou mettre à jour l'utilisateur
 try {
-    $pdo = new PDO('mysql:host=db;dbname=gamestore;charset=utf8mb4', 'user', 'userpassword');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $pdo = db_connection();
 
     $lookup = $pdo->prepare(
         "SELECT id_utilisateur
