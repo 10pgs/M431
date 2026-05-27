@@ -74,6 +74,8 @@ function render_auth_error_page(
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/register.css">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" href="css/logo.css">
 </head>
 <body class="success-shell">
     <div class="card error-card">

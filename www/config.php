@@ -17,7 +17,7 @@ if (!function_exists('app_env')) {
 
 define('GOOGLE_CLIENT_ID',     app_env('GOOGLE_CLIENT_ID', ''));
 define('GOOGLE_CLIENT_SECRET', app_env('GOOGLE_CLIENT_SECRET', ''));
-define('GOOGLE_REDIRECT_URI',  app_env('GOOGLE_REDIRECT_URI', 'http://localhost/google-callback.php'));
+define('GOOGLE_REDIRECT_URI',  app_env('GOOGLE_REDIRECT_URI', 'http://localhost:8082/google-callback.php'));
 define('SMTP_HOST',            app_env('SMTP_HOST', ''));
 define('SMTP_PORT',            (int) app_env('SMTP_PORT', '587'));
 define('SMTP_ENCRYPTION',      strtolower(app_env('SMTP_ENCRYPTION', 'tls') ?? 'tls'));
