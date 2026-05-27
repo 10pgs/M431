@@ -1,10 +1,12 @@
 <?php
 session_set_cookie_params([
     'httponly' => true,
-    'secure'   => isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on',
+    'secure' => isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on',
     'samesite' => 'Lax'
 ]);
 session_start();
+
+require_once 'db.php';
 
 $user = $_SESSION['user'] ?? null;
 $profile = null;
@@ -13,18 +15,16 @@ $dbNotice = '';
 
 if ($user) {
     try {
-        $pdo = new PDO('mysql:host=db;dbname=gamestore;charset=utf8mb4', 'user', 'userpassword');
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+        $pdo = db_connection();
 
         if (($user['auth'] ?? '') === 'google') {
             $stmt = $pdo->prepare(
                 "SELECT id_utilisateur, username, email, auth_provider, card_last4, created_at
                  FROM utilisateur
-                 WHERE google_sub = ? OR email = ?
+                 WHERE id_utilisateur = ? OR google_sub = ? OR email = ?
                  LIMIT 1"
             );
-            $stmt->execute([$user['id'] ?? '', $user['email'] ?? '']);
+            $stmt->execute([$user['id'] ?? 0, $user['google_sub'] ?? '', $user['email'] ?? '']);
         } else {
             $stmt = $pdo->prepare(
                 "SELECT id_utilisateur, username, email, auth_provider, card_last4, created_at
@@ -72,14 +72,21 @@ $initial = strtoupper(substr((string) ($profile['username'] ?? $user['name'] ?? 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Sora:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" href="css/logo.css">
     <link rel="stylesheet" href="css/profile.css?v=20260527-2">
     <title>Game Store - Profil</title>
 </head>
 
 <body>
     <header>
-        <a href="index.html" class="brand-mark">Game Store</a>
+        <a href="index.html" class="brand-mark">
+            <img src="img/logo.png" alt="Logo Game Store" class="brand-logo">
+            <span>Game Store</span>
+        </a>
         <div class="header-actions">
             <nav>
                 <ul>
@@ -165,7 +172,8 @@ $initial = strtoupper(substr((string) ($profile['username'] ?? $user['name'] ?? 
                             <article class="purchase-item">
                                 <strong><?php echo htmlspecialchars((string) $purchase['titre'], ENT_QUOTES, 'UTF-8'); ?></strong>
                                 <span><?php echo htmlspecialchars(date('d.m.Y', strtotime((string) $purchase['date_achat'])), ENT_QUOTES, 'UTF-8'); ?></span>
-                                <span><?php echo htmlspecialchars((string) $purchase['prix_achat'], ENT_QUOTES, 'UTF-8'); ?> CHF</span>
+                                <span><?php echo htmlspecialchars((string) $purchase['prix_achat'], ENT_QUOTES, 'UTF-8'); ?>
+                                    CHF</span>
                             </article>
                         <?php endforeach; ?>
                     </div>

@@ -56,6 +56,21 @@ Variables utiles :
 - `MAIL_FROM_ADDRESS`
 - `MAIL_FROM_NAME`
 
+Pour activer la connexion Google :
+1. Ouvre Google Cloud Console et crée un projet.
+2. Va dans `APIs et services` puis `Identifiants`.
+3. Crée un `ID client OAuth` de type `Application Web`.
+4. Ajoute cette URI dans les redirections autorisées :
+   ```text
+   http://localhost:8082/google-callback.php
+   ```
+5. Copie l'ID client et le secret client dans `.env` :
+   ```env
+   GOOGLE_CLIENT_ID=ton-client-id-google
+   GOOGLE_CLIENT_SECRET=ton-secret-google
+   GOOGLE_REDIRECT_URI=http://localhost:8082/google-callback.php
+   ```
+
 Copie `.env.example` vers `.env`, puis remplace les valeurs SMTP par celles de ton fournisseur :
 ```env
 SMTP_HOST=smtp.example.com
