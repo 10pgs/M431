@@ -1,12 +1,16 @@
 (() => {
     const footer = document.getElementById('site-footer');
     if (!footer) return;
+    addFooterStyles();
 
     fetch('data/team.json')
         .then((response) => response.json())
         .then(renderFooter)
         .catch(() => {
-            footer.innerHTML = '<p>&copy; Tout droit réservé à Thierry Tavares da Costa, Dan Zorev et Jason Haran.</p>';
+            footer.innerHTML = `
+                <p>&copy; Tout droit réservé à Thierry Tavares da Costa, Dan Zorev et Jason Haran.</p>
+                ${renderLegalLinks()}
+            `;
         });
 
     function renderFooter(team) {
@@ -15,6 +19,7 @@
             <div class="social-footer">
                 ${team.map(renderPerson).join('')}
             </div>
+            ${renderLegalLinks()}
         `;
     }
 
@@ -35,6 +40,45 @@
         const external = href !== '#';
         const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : '';
         return `<a href="${href}" class="social-link" aria-label="${label}" title="${label.split(' de ')[0]}"${attrs}>${icon}</a>`;
+    }
+
+    function renderLegalLinks() {
+        return `
+            <nav class="legal-footer" aria-label="Liens légaux">
+                <a href="cgu.html">Conditions générales d'utilisation</a>
+                <a href="cgv.html">Conditions générales de vente</a>
+            </nav>
+        `;
+    }
+
+    function addFooterStyles() {
+        if (document.getElementById('footer-legal-styles')) return;
+
+        const style = document.createElement('style');
+        style.id = 'footer-legal-styles';
+        style.textContent = `
+            .legal-footer {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px 22px;
+                margin-top: 22px;
+                font-size: 0.92rem;
+            }
+
+            .legal-footer a {
+                color: #4b5563;
+                font-weight: 700;
+                text-decoration: none;
+            }
+
+            .legal-footer a:hover {
+                color: #111827;
+                text-decoration: underline;
+                text-underline-offset: 4px;
+            }
+        `;
+        document.head.appendChild(style);
     }
 
     function instagramIcon() {
