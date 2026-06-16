@@ -1,0 +1,67 @@
+[build]
+  publish = "www"
+  command = ""
+
+[[redirects]]
+  from = "/auth-view.php"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/config.php"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/google-callback.php"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/google-login.php"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/login.php"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/logout.php"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/mail.php"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/register.php"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/register-result.php"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/project.html"
+  to = "/games.html"
+  status = 302
+
+[[redirects]]
+  from = "/img/games/RDR2.jpg"
+  to = "/img/games/rdr2.jpg"
+  status = 200
